@@ -43,14 +43,34 @@
 
         /* ── HERO ── */
         .hero {
-            min-height: 100vh;
+            position: relative;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             border-bottom: 1px solid var(--border);
             padding: 80px 6%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.38;
+            filter: saturate(0.25) contrast(1.2);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 100%);
         }
 
         .hero-inner {
+            position: relative;
+            z-index: 10;
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
@@ -62,20 +82,20 @@
 
         .hero-left .hero-label {
             font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             letter-spacing: 0.35em;
             text-transform: uppercase;
-            color: var(--amber);
+            color: #ffd43b;
             display: block;
             margin-bottom: 1.5rem;
         }
 
         .hero-left h1 {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            font-size: clamp(2.8rem, 4.5vw, 4.2rem);
             font-weight: 400;
-            line-height: 1.1;
-            color: var(--text-main);
+            line-height: 1.08;
+            color: #ffffff;
         }
 
         .hero-right {
@@ -86,9 +106,9 @@
 
         .hero-right .hero-sub {
             font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            font-size: 1.15rem;
             line-height: 1.75;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.75);
             font-weight: 300;
         }
 
@@ -96,50 +116,69 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 0.75rem;
+            gap: 0.85rem;
         }
 
         .btn-primary {
-            background: var(--text-main);
-            color: #ffffff;
-            padding: 0.85rem 2rem;
+            background: #ffffff;
+            color: #000000;
+            padding: 1.1rem 2.5rem;
             border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             transition: background 0.2s ease;
             display: inline-block;
             white-space: nowrap;
         }
 
-        .btn-primary:hover { background: #333; }
+        .btn-primary:hover { background: #e0e0e0; }
 
         .btn-secondary {
             background: transparent;
-            color: var(--text-muted);
-            padding: 0.75rem 1.75rem;
+            color: rgba(255,255,255,0.8);
+            padding: 1rem 2.25rem;
             border-radius: 4px;
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            font-size: 0.65rem;
-            border: 1px solid rgba(0,0,0,0.15);
+            font-size: 0.8rem;
+            border: 1px solid rgba(255,255,255,0.35);
             transition: border-color 0.2s ease, color 0.2s ease;
             display: inline-block;
             white-space: nowrap;
         }
 
-        .btn-secondary:hover { border-color: rgba(0,0,0,0.4); color: var(--text-main); }
+        .btn-secondary:hover { border-color: rgba(255,255,255,0.8); color: #ffffff; }
+
+        /* Override btn styles inside white sections */
+        .wl-cta .btn-primary,
+        .process-coda .btn-primary {
+            background: var(--text-main);
+            color: #ffffff;
+        }
+        .wl-cta .btn-primary:hover,
+        .process-coda .btn-primary:hover { background: #333; }
+
+        .wl-cta .btn-secondary,
+        .process-coda .btn-secondary {
+            color: var(--text-muted);
+            border-color: rgba(0,0,0,0.18);
+        }
+        .wl-cta .btn-secondary:hover,
+        .process-coda .btn-secondary:hover { border-color: rgba(0,0,0,0.45); color: var(--text-main); }
 
         .cta-microcopy {
             font-family: 'Inter', sans-serif;
-            font-size: 0.72rem;
-            color: #aaa9a6;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
             letter-spacing: 0.02em;
         }
+
+        .process-coda .cta-microcopy { color: #aaa9a6; }
 
         /* ── SECTION COMMONS ── */
         section {
@@ -154,7 +193,7 @@
 
         .section-label {
             font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             letter-spacing: 0.35em;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -166,7 +205,7 @@
 
         .section-h2 {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-size: clamp(2.2rem, 3.5vw, 3.1rem);
             font-weight: 400;
             color: var(--text-main);
             line-height: 1.15;
@@ -175,7 +214,7 @@
 
         .section-sub {
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             line-height: 1.65;
             max-width: 620px;
@@ -202,7 +241,7 @@
 
         .scenario-num {
             font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -214,7 +253,7 @@
 
         .scenario-card h3 {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 400;
             color: var(--text-main);
             margin-bottom: 0.6rem;
@@ -222,7 +261,7 @@
 
         .scenario-card p {
             font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
+            font-size: 1rem;
             line-height: 1.7;
             color: var(--text-muted);
             font-weight: 300;
@@ -236,7 +275,7 @@
 
         .problem-bridge p {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.2rem;
+            font-size: 1.45rem;
             color: #555;
             line-height: 1.55;
             margin-bottom: 0.6rem;
@@ -258,14 +297,14 @@
 
         .soft-cta-box p {
             font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
+            font-size: 1rem;
             color: var(--text-muted);
             line-height: 1.5;
         }
 
         .soft-cta-box a {
             font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -289,7 +328,7 @@
 
         .wl-body {
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             color: var(--text-muted);
             font-weight: 300;
@@ -314,7 +353,7 @@
 
         .ue-title {
             font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.72rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: #aaa9a6;
@@ -333,7 +372,7 @@
 
         .ue-key {
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -341,7 +380,7 @@
 
         .ue-val {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.25rem;
+            font-size: 1.45rem;
             color: var(--text-main);
         }
 
@@ -356,7 +395,7 @@
 
         .benefits-list .bl-title {
             font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.72rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: #aaa9a6;
@@ -369,7 +408,7 @@
             gap: 0.75rem;
             padding: 0.55rem 0;
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-muted);
             border-bottom: 1px solid var(--border);
         }
@@ -392,7 +431,7 @@
 
         .pilot-box .pilot-label {
             font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.72rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--green);
@@ -402,7 +441,7 @@
 
         .pilot-box p {
             font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
+            font-size: 1rem;
             color: #4a7a5a;
             line-height: 1.65;
         }
@@ -416,7 +455,7 @@
 
         .wl-cta-lead {
             font-family: 'Instrument Serif', serif;
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
             font-style: italic;
         }
@@ -444,7 +483,7 @@
 
         .step-card .step-num {
             font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -458,7 +497,7 @@
 
         .step-card h3 {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.15rem;
+            font-size: 1.4rem;
             font-weight: 400;
             color: var(--text-main);
             margin-bottom: 0.6rem;
@@ -466,7 +505,7 @@
 
         .step-card p {
             font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             line-height: 1.65;
             color: var(--text-muted);
             font-weight: 300;
@@ -481,11 +520,11 @@
 
         .del-pill {
             font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             background: var(--bg);
             border: 1px solid var(--border);
-            padding: 4px 10px;
+            padding: 5px 11px;
             border-radius: 3px;
         }
 
@@ -495,7 +534,7 @@
             justify-content: space-between;
             gap: 2rem;
             flex-wrap: wrap;
-            padding: 2rem;
+            padding: 2rem 2.5rem;
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -503,7 +542,7 @@
 
         .process-coda p {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--text-main);
             line-height: 1.4;
             max-width: 460px;
@@ -517,7 +556,7 @@
         }
 
         .process-coda .cta-microcopy {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: #aaa9a6;
         }
 
@@ -529,7 +568,7 @@
 
         .footer-logo {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-style: italic;
             color: var(--text-muted);
             display: block;
@@ -538,7 +577,7 @@
 
         footer p {
             font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: #aaa9a6;
@@ -548,7 +587,7 @@
         @media (max-width: 900px) {
             .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
             .cta-stack { align-items: stretch; }
-            .btn-primary, .btn-secondary { text-align: center; }
+            .btn-primary, .btn-secondary { text-align: center; display: block; }
             .problem-grid { grid-template-columns: 1fr; }
             .wl-layout { grid-template-columns: 1fr; gap: 2rem; }
             .process-steps { grid-template-columns: 1fr 1fr; }
@@ -571,6 +610,10 @@
 
     <!-- ── HERO ── -->
     <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="../videohero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-inner">
             <div class="hero-left">
                 <span class="hero-label">For Agencies</span>
