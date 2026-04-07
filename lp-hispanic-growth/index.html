@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TJ99WQLT');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>CopyOfficer | Bilingual Growth for Agencies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #0d0d0d;
+            --border: rgba(255,255,255,0.08);
+            --text-main: #ffffff;
+            --text-muted: rgba(255,255,255,0.45);
+            --accent: #ffffff;
+            --amber: #ffd43b;
+            --red: #ff6b6b;
+            --green: #51cf66;
+            --blue: #74c0fc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_stock_noise.png');
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+            filter: saturate(0.3) contrast(1.2);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(5,5,5,0.6) 100%);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+            max-width: 900px;
+            padding: 0 40px;
+        }
+
+        .hero-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            color: #ffffff;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+            color: rgba(255,255,255,0.75);
+            max-width: 680px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+
+        .cta-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #000000;
+            padding: 1.1rem 2.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.75rem;
+            transition: background 0.25s ease;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover { background: #d4d4d4; }
+
+        .btn-secondary {
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: border-color 0.25s ease, color 0.25s ease;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(255,255,255,0.5);
+            color: #ffffff;
+        }
+
+        .cta-microcopy {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        /* ── SECTION COMMONS ── */
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .section-label.amber { color: var(--amber); }
+
+        /* ── PROBLEM SECTION ── */
+        .problem-section {
+            padding: 140px 5%;
+            background: var(--bg);
+        }
+
+        .problem-inner {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .problem-inner h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 2.5rem;
+        }
+
+        .problem-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.55);
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .problem-body p { margin-bottom: 1.25rem; }
+        .problem-body p:last-child { margin-bottom: 0; }
+
+        .problem-scenarios {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .scenario-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 2rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scenario-card:nth-child(1) { border-left: 4px solid var(--red); }
+        .scenario-card:nth-child(2) { border-left: 4px solid var(--amber); }
+
+        .scenario-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .scenario-card:nth-child(1) .scenario-num { color: var(--red); }
+        .scenario-card:nth-child(2) .scenario-num { color: var(--amber); }
+
+        .scenario-card h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .scenario-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.5);
+            font-weight: 300;
+        }
+
+        .problem-bridge {
+            margin: 3rem 0;
+            padding: 2rem 0 2rem 1.5rem;
+            border-left: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .problem-bridge p {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+            font-weight: 400;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .problem-bridge p:last-child { margin-bottom: 0; }
+
+        .problem-soft-cta {
+            margin-top: 3.5rem;
+            padding: 2.5rem;
+            background: rgba(255,212,59,0.04);
+            border: 1px solid rgba(255,212,59,0.15);
+            border-radius: 8px;
+        }
+
+        .problem-soft-cta p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .problem-soft-cta a {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.25rem;
+            color: var(--amber);
+            text-decoration: none;
+            display: inline-block;
+            border-bottom: 1px solid rgba(255,212,59,0.3);
+            padding-bottom: 2px;
+            transition: border-color 0.2s ease;
+        }
+
+        .problem-soft-cta a:hover { border-color: var(--amber); }
+
+        /* ── WHITE LABEL SECTION ── */
+        .wl-section {
+            padding: 140px 5%;
+            background: #080808;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .wl-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .wl-inner h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .wl-inner .wl-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 3.5rem;
+            line-height: 1.6;
+        }
+
+        .wl-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.55);
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .wl-body p { margin-bottom: 1.1rem; }
+        .wl-body p:last-child { margin-bottom: 0; }
+
+        .wl-body strong {
+            color: rgba(255,255,255,0.85);
+            font-weight: 400;
+        }
+
+        .unit-economics {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .unit-economics .ue-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 1.75rem;
+        }
+
+        .ue-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .ue-row:last-child { border-bottom: none; }
+
+        .ue-label-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .ue-value {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #ffffff;
+        }
+
+        .ue-row.margin .ue-value { color: var(--green); }
+
+        .wl-benefits {
+            margin: 3rem 0;
+        }
+
+        .wl-benefits-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 1.25rem;
+        }
+
+        .wl-benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .wl-benefit-item:last-child { border-bottom: none; }
+
+        .wl-benefit-item::before {
+            content: '+';
+            color: var(--green);
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .pilot-box {
+            background: rgba(81,207,102,0.04);
+            border: 1px solid rgba(81,207,102,0.15);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .pilot-box .pilot-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .pilot-box h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .pilot-box p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .wl-cta {
+            margin-top: 3.5rem;
+        }
+
+        .wl-cta p {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        /* ── PROCESS SECTION ── */
+        .process-section {
+            padding: 140px 0;
+            background: var(--bg);
+        }
+
+        .process-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .process-header h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .process-header .proc-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.45);
+            max-width: 680px;
+            margin: 0 auto 2rem;
+            line-height: 1.65;
+        }
+
+        .process-header .proc-intro {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.35);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.75;
+            border-left: 2px solid rgba(255,255,255,0.08);
+            text-align: left;
+            padding-left: 1.25rem;
+        }
+
+        .steps-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            gap: 0 0;
+            align-items: start;
+        }
+
+        .steps-left {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 60px 60px 0;
+        }
+
+        .steps-indicator {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .step-ind {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.2);
+            transition: color 0.4s ease;
+        }
+
+        .step-ind.active { color: rgba(255,255,255,0.9); }
+
+        .step-ind-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            flex-shrink: 0;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .step-ind.active .step-ind-dot {
+            background: #ffffff;
+            box-shadow: 0 0 8px rgba(255,255,255,0.6);
+        }
+
+        .steps-divider {
+            background: rgba(255,255,255,0.06);
+            align-self: stretch;
+            position: relative;
+        }
+
+        .steps-divider-fill {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4), transparent);
+            transform-origin: top;
+            transform: scaleY(0);
+            transition: transform 0.1s linear;
+        }
+
+        .steps-right {
+            padding: 100px 0 100px 60px;
+        }
+
+        .step-block {
+            padding: 48px 0;
+            opacity: 0;
+            filter: blur(12px);
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.7s ease, transform 0.7s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .step-block:last-child { border-bottom: none; }
+        .step-block.visible { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+        .step-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .step-block[data-accent="red"]   .step-num { color: var(--red); }
+        .step-block[data-accent="green"] .step-num { color: var(--green); }
+        .step-block[data-accent="amber"] .step-num { color: var(--amber); }
+        .step-block[data-accent="blue"]  .step-num { color: var(--blue); }
+
+        .step-viz {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 20px;
+            margin-bottom: 1.5rem;
+            opacity: 0.5;
+        }
+
+        @keyframes barPulse {
+            0%,100% { transform: scaleY(0.3); opacity: 0.3; }
+            50%      { transform: scaleY(1);   opacity: 0.7; }
+        }
+
+        .step-viz span {
+            width: 3px;
+            background: currentColor;
+            border-radius: 2px;
+            animation: barPulse 1.2s ease-in-out infinite;
+        }
+
+        .step-block[data-accent="red"]   .step-viz { color: var(--red); }
+        .step-block[data-accent="green"] .step-viz { color: var(--green); }
+        .step-block[data-accent="amber"] .step-viz { color: var(--amber); }
+        .step-block[data-accent="blue"]  .step-viz { color: var(--blue); }
+
+        .step-viz span:nth-child(1) { animation-delay: 0s;    height: 40%; }
+        .step-viz span:nth-child(2) { animation-delay: 0.15s; height: 70%; }
+        .step-viz span:nth-child(3) { animation-delay: 0.3s;  height: 100%; }
+        .step-viz span:nth-child(4) { animation-delay: 0.45s; height: 55%; }
+        .step-viz span:nth-child(5) { animation-delay: 0.6s;  height: 30%; }
+
+        .step-block h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 1.25rem;
+        }
+
+        .step-block p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.55);
+            font-weight: 300;
+            max-width: 520px;
+            margin-bottom: 2rem;
+        }
+
+        .del-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 0.75rem;
+            margin-top: 1.75rem;
+        }
+
+        .deliverables {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .del-pill {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 8px 14px;
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+            transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .del-pill::before { content: '+'; opacity: 0.4; font-size: 0.7rem; }
+
+        .step-block[data-accent="red"]   .del-pill:hover { border-color: var(--red);   color: var(--red);   box-shadow: 0 0 10px rgba(255,107,107,0.2); }
+        .step-block[data-accent="green"] .del-pill:hover { border-color: var(--green); color: var(--green); box-shadow: 0 0 10px rgba(81,207,102,0.2); }
+        .step-block[data-accent="amber"] .del-pill:hover { border-color: var(--amber); color: var(--amber); box-shadow: 0 0 10px rgba(255,212,59,0.2); }
+        .step-block[data-accent="blue"]  .del-pill:hover { border-color: var(--blue);  color: var(--blue);  box-shadow: 0 0 10px rgba(116,192,252,0.2); }
+
+        /* ── CLOSING CTA ── */
+        .closing-coda {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 100px 5%;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .coda-path {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .coda-dot  { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); }
+        .coda-line { flex: 1; max-width: 60px; height: 1px; background: rgba(255,255,255,0.1); }
+        .coda-final { width: 10px; height: 10px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 12px rgba(255,212,59,0.6); }
+
+        .closing-coda h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .closing-coda .coda-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: rgba(255,255,255,0.6);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.2);
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            .hero-inner { padding: 0 24px; }
+
+            .problem-section,
+            .wl-section,
+            .process-section { padding: 80px 5%; }
+
+            .process-section { padding: 80px 0; }
+
+            .scenario-card { padding: 1.5rem; }
+
+            .unit-economics { padding: 1.75rem; }
+
+            .pilot-box { padding: 1.75rem; }
+
+            .steps-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-left,
+            .steps-divider { display: none; }
+
+            .steps-right { padding: 0; }
+
+            .step-block { padding: 40px 0; }
+
+            .step-block p { max-width: 100%; }
+
+            .ue-value { font-size: 1.25rem; }
+
+            .cta-stack {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0 1rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-header { padding: 0 24px; }
+            .steps-right { padding: 0 24px; }
+            .closing-coda { padding: 80px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ99WQLT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="../videohero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-inner">
+            <span class="hero-label">For Agencies</span>
+            <h1>Your clients have Hispanic audiences.<br>You're leaving revenue on the table.</h1>
+            <p class="hero-sub">We build the bilingual customer journey, full funnel, in English and Spanish, written natively, not translated. White-label for agencies ready to capture what their clients are already missing.</p>
+            <div class="cta-stack">
+                <a href="#" class="btn-primary">Book a 15-min call</a>
+                <a href="#" class="btn-secondary">Run the Bilingual Revenue Audit</a>
+                <p class="cta-microcopy">5 questions to diagnose if your clients are losing Hispanic market revenue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── THE PROBLEM ── -->
+    <section class="problem-section">
+        <div class="problem-inner">
+            <span class="section-label">The Problem</span>
+            <h2>The problem isn't content. It's narrative misalignment.</h2>
+
+            <div class="problem-body">
+                <p>Most agencies think they're serving Hispanic audiences.</p>
+                <p>They're not.</p>
+                <p>There are only two scenarios and both break the customer journey:</p>
+            </div>
+
+            <div class="problem-scenarios">
+                <div class="scenario-card">
+                    <div class="scenario-num">Scenario 01</div>
+                    <h3>Translation instead of strategy</h3>
+                    <p>Content is written in English, then translated.<br>
+                    Same words, different meaning. The narrative collapses.<br>
+                    Conversions drop.</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-num">Scenario 02</div>
+                    <h3>No Spanish layer at all</h3>
+                    <p>Campaigns run only in English.<br>
+                    A large part of the market never enters the funnel.<br>
+                    Revenue goes to whoever does.</p>
+                </div>
+            </div>
+
+            <div class="problem-bridge">
+                <p>This is not a language problem.<br>It's a coherence problem across the funnel.</p>
+                <p>If the story changes between languages, the journey breaks.<br>
+                If one language is missing, the journey never starts.</p>
+            </div>
+
+            <div class="problem-soft-cta">
+                <p>Not sure if this is happening to your clients?</p>
+                <p>Run a quick diagnostic:</p>
+                <a href="#">The Bilingual Customer Journey Audit</a>
+                <p style="margin-top: 0.75rem; font-size: 0.8rem;">5 questions to diagnose if your clients are losing Hispanic market revenue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── WHITE LABEL PARTNERSHIP ── -->
+    <section class="wl-section">
+        <div class="wl-inner">
+            <span class="section-label amber">White-Label Partnership</span>
+            <h2>Add a new revenue stream without adding headcount.</h2>
+            <p class="wl-sub">You own the client. We build the bilingual layer behind the scenes.</p>
+
+            <div class="wl-body">
+                <p>We operate as a white-label partner inside your agency.</p>
+                <p><strong>You sell the service.</strong><br>
+                <strong>You manage the relationship.</strong><br>
+                <strong>We deliver the bilingual customer journey end to end.</strong></p>
+                <p>No hiring. No training. No operational overhead.</p>
+            </div>
+
+            <div class="unit-economics">
+                <div class="ue-label">The unit economics</div>
+                <div class="ue-row">
+                    <span class="ue-label-text">Your price</span>
+                    <span class="ue-value">$3,000 - $5,000 / mo per client</span>
+                </div>
+                <div class="ue-row">
+                    <span class="ue-label-text">Our fee</span>
+                    <span class="ue-value">$1,500 - $2,500 / mo</span>
+                </div>
+                <div class="ue-row margin">
+                    <span class="ue-label-text">Your margin</span>
+                    <span class="ue-value">~50%</span>
+                </div>
+            </div>
+
+            <div class="wl-body">
+                <p>This is not a one-off project.<br>It's a monthly retainer tied to your client's growth.</p>
+            </div>
+
+            <div class="wl-benefits">
+                <div class="wl-benefits-label">Why agencies choose this model</div>
+                <div class="wl-benefit-item">Expand your offer without diluting focus</div>
+                <div class="wl-benefit-item">Increase LTV per client</div>
+                <div class="wl-benefit-item">Differentiate in competitive pitches</div>
+                <div class="wl-benefit-item">Capture revenue competitors are already taking</div>
+            </div>
+
+            <div class="pilot-box">
+                <span class="pilot-label">Low-risk entry</span>
+                <h3>Start with one client.</h3>
+                <p>60-day pilot. $800 - $1,000 per month.<br><br>
+                Prove performance. Validate demand. Then scale.</p>
+            </div>
+
+            <div class="wl-cta">
+                <p>Have a client in mind?</p>
+                <a href="#" class="btn-primary">Book a 15-min call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PROCESS ── -->
+    <section class="process-section">
+        <div class="process-header">
+            <span class="section-label">The Process</span>
+            <h2>Most agencies skip the part that actually drives performance.</h2>
+            <p class="proc-sub">They start with content. We start with how the customer thinks in both languages.</p>
+            <p class="proc-intro">Bilingual content doesn't fail at execution.<br>It fails at the level of understanding.<br><br>
+            If you don't map how the customer thinks in each language, everything that follows is guesswork.</p>
+        </div>
+
+        <div class="steps-wrapper">
+            <!-- Sticky left indicator -->
+            <div class="steps-left">
+                <div class="steps-indicator">
+                    <div class="step-ind active" data-step="0">
+                        <div class="step-ind-dot"></div>
+                        <span>01 Cognitive Mapping</span>
+                    </div>
+                    <div class="step-ind" data-step="1">
+                        <div class="step-ind-dot"></div>
+                        <span>02 Acquisition Content</span>
+                    </div>
+                    <div class="step-ind" data-step="2">
+                        <div class="step-ind-dot"></div>
+                        <span>03 Conversion Content</span>
+                    </div>
+                    <div class="step-ind" data-step="3">
+                        <div class="step-ind-dot"></div>
+                        <span>04 Retention Content</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="steps-divider">
+                <div class="steps-divider-fill" id="dividerFill"></div>
+            </div>
+
+            <!-- Right: step blocks -->
+            <div class="steps-right">
+                <div class="step-block" data-accent="red" data-step="0">
+                    <div class="step-viz">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="step-num">Step 01</div>
+                    <h3>Cognitive Mapping</h3>
+                    <p>We map the customer's mental model. What they believe. What they expect. What tension moves them to act. And how that differs between English and Spanish.</p>
+                    <div class="del-label">Deliverables</div>
+                    <div class="deliverables">
+                        <span class="del-pill">Market tension analysis</span>
+                        <span class="del-pill">ICP cognitive model</span>
+                        <span class="del-pill">A to C transformation map</span>
+                        <span class="del-pill">Funnel friction audit</span>
+                        <span class="del-pill">Bilingual insights EN/ES</span>
+                    </div>
+                </div>
+
+                <div class="step-block" data-accent="green" data-step="1">
+                    <div class="step-viz">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="step-num">Step 02</div>
+                    <h3>Acquisition Content</h3>
+                    <p>We write what gets attention. Content that matches how each audience interprets value.</p>
+                    <div class="del-label">Deliverables</div>
+                    <div class="deliverables">
+                        <span class="del-pill">Ad creatives Meta/Google</span>
+                        <span class="del-pill">Hook library</span>
+                        <span class="del-pill">Bilingual ad sets EN/ES</span>
+                        <span class="del-pill">A/B testing structure</span>
+                        <span class="del-pill">Performance tracking</span>
+                    </div>
+                </div>
+
+                <div class="step-block" data-accent="amber" data-step="2">
+                    <div class="step-viz">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="step-num">Step 03</div>
+                    <h3>Conversion Content</h3>
+                    <p>We build the conversion layer. The landing page continues the same narrative. No friction.</p>
+                    <div class="del-label">Deliverables</div>
+                    <div class="deliverables">
+                        <span class="del-pill">Landing page architecture EN/ES</span>
+                        <span class="del-pill">Sales structure</span>
+                        <span class="del-pill">Value hierarchy</span>
+                        <span class="del-pill">Objection handling</span>
+                        <span class="del-pill">CRO roadmap</span>
+                    </div>
+                </div>
+
+                <div class="step-block" data-accent="blue" data-step="3">
+                    <div class="step-viz">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="step-num">Step 04</div>
+                    <h3>Retention Content</h3>
+                    <p>We extend the journey. Emails and follow-ups that reinforce the same story.</p>
+                    <div class="del-label">Deliverables</div>
+                    <div class="deliverables">
+                        <span class="del-pill">Email flows EN/ES</span>
+                        <span class="del-pill">Follow-up sequences</span>
+                        <span class="del-pill">Re-engagement campaigns</span>
+                        <span class="del-pill">Retention calendar</span>
+                        <span class="del-pill">Editorial consistency system</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing line -->
+        <div class="closing-coda">
+            <div class="coda-path">
+                <div class="coda-dot"></div>
+                <div class="coda-line"></div>
+                <div class="coda-dot"></div>
+                <div class="coda-line"></div>
+                <div class="coda-dot"></div>
+                <div class="coda-line"></div>
+                <div class="coda-final"></div>
+            </div>
+            <h3>Most agencies start at step 3.<br>That's why their bilingual content underperforms.</h3>
+            <p class="coda-sub">Ready to build a bilingual revenue stream for your agency?</p>
+            <div class="cta-stack">
+                <a href="#" class="btn-primary">Book a 15-min call</a>
+                <a href="#" class="btn-secondary">Run the Bilingual Revenue Audit</a>
+                <p class="cta-microcopy">5 questions to diagnose if your clients are losing Hispanic market revenue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <span class="footer-logo">CopyOfficer</span>
+        <p>Human Content That Converts &nbsp;&middot;&nbsp; All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // ── Service cards: animate on scroll ──
+        const stepBlocks = document.querySelectorAll('.step-block');
+        const stepInds   = document.querySelectorAll('.step-ind');
+        const dividerFill = document.getElementById('dividerFill');
+
+        const blockObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        stepBlocks.forEach(b => blockObserver.observe(b));
+
+        // ── Step indicator update on scroll ──
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const winH    = window.innerHeight;
+
+            stepBlocks.forEach((block, i) => {
+                const rect = block.getBoundingClientRect();
+                const mid  = rect.top + rect.height / 2;
+                if (mid < winH * 0.65) {
+                    stepInds.forEach(ind => ind.classList.remove('active'));
+                    if (stepInds[i]) stepInds[i].classList.add('active');
+                }
+            });
+
+            // Divider fill progress
+            if (dividerFill) {
+                const stepsRight = document.querySelector('.steps-right');
+                if (stepsRight) {
+                    const rect    = stepsRight.getBoundingClientRect();
+                    const total   = rect.height;
+                    const scrolled = Math.max(0, -rect.top + winH * 0.5);
+                    const pct     = Math.min(1, scrolled / total);
+                    dividerFill.style.height = (pct * 100) + '%';
+                    dividerFill.style.transform = 'scaleY(1)';
+                }
+            }
+        });
+
+        // ── Magnetic card spotlight ──
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const r = card.getBoundingClientRect();
+                card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+                card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+            });
+        });
+    </script>
+</body>
+</html>
