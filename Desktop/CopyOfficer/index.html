@@ -8,1218 +8,864 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TJ99WQLT');</script>
     <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CopyOfficer | Human Content That Converts</title>
+    <title>CopyOfficer | Hispanic Acquisition Architecture</title>
+    <meta name="description" content="We design and operate complete Hispanic acquisition systems for US brands in real estate, healthcare, financial services, retail and SaaS.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg: #050505;
-            --card-bg: #0d0d0d;
-            --border: rgba(255, 255, 255, 0.1);
-            --text-main: #ffffff;
-            --text-muted: #a1a1a1;
-            --accent: #ffffff;
-            --radius: 12px;
+            --bg:         #F7F2EA;
+            --bg-cream:   #EDE5D6;
+            --text:       #1A1614;
+            --text-mid:   #3D3330;
+            --text-muted: #6B5F59;
+            --terracotta: #C2492C;
+            --terra-dark: #A33A20;
+            --moss:       #3D5240;
+            --gold:       #C8941A;
+            --max-w:      1200px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
+            background: var(--bg);
+            color: var(--text);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Cinematic Background Grain */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_stock_noise.png');
-            opacity: 0.04;
-            pointer-events: none;
-            z-index: 100;
+        /* ── Utility ── */
+        .inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
         }
 
-        header {
-            padding: 2rem 5%;
+        /* ── Typography scale ── */
+        h1, h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            line-height: 1.08;
+            color: var(--text);
+        }
+
+        h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.65;
+            color: var(--text-muted);
+        }
+
+        /* ── Lead-in label ── */
+        .lead-in {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 18px;
+        }
+
+        /* ── Thin decorative rule ── */
+        .rule {
+            display: block;
+            width: 56px;
+            height: 2px;
+            background: var(--terracotta);
+            border: none;
+            margin: 0 0 32px;
+        }
+        .rule--moss  { background: var(--moss); }
+        .rule--center { margin: 0 auto 32px; }
+
+        /* ── Buttons ── */
+        .btn-primary {
+            display: inline-block;
+            background: var(--terracotta);
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+        }
+        .btn-primary:hover {
+            background: var(--terra-dark);
+            box-shadow: 0 6px 22px rgba(194,73,44,0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: #F7F2EA;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1.5px solid rgba(247,242,234,0.45);
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+        .btn-outline:hover {
+            border-color: #F7F2EA;
+            background: rgba(247,242,234,0.1);
+        }
+
+        .btn-link {
+            display: inline-block;
+            color: var(--moss);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            border-bottom: 1.5px solid var(--moss);
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .btn-link:hover {
+            color: var(--terracotta);
+            border-color: var(--terracotta);
+        }
+
+        /* ── Focus states ── */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--terracotta);
+            outline-offset: 3px;
+            border-radius: 3px;
+        }
+
+        /* ──────────────────────────────────────────
+           HEADER / NAV
+        ────────────────────────────────────────── */
+        .site-header {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 200;
+            padding: 28px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: absolute;
-            width: 100%;
-            z-index: 1000;
         }
 
-        .logo { 
-            font-family: 'Instrument Serif', serif; 
-            font-size: 1.8rem; 
-            font-style: italic; 
-            letter-spacing: -1px; 
+        .logo img {
+            height: 38px;
+            width: auto;
+            display: block;
         }
 
-        /* Cinematic Video Hero */
-        .hero-video-container {
+        .nav-cta {
+            background: var(--terracotta);
+            color: #fff;
+            text-decoration: none;
+            padding: 11px 24px;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+        }
+        .nav-cta:hover {
+            background: var(--terra-dark);
+            box-shadow: 0 4px 16px rgba(194,73,44,0.25);
+            transform: translateY(-1px);
+        }
+
+        /* ──────────────────────────────────────────
+           SECTION 1 — HERO
+        ────────────────────────────────────────── */
+        .hero {
             position: relative;
             width: 100%;
-            height: 90vh;
+            height: 92vh;
+            min-height: 620px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #000;
+            background: #1A1614;
         }
 
-        .video-placeholder {
+        .hero-video {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            opacity: 0.4;
-            filter: saturate(0.3) contrast(1.2);
+            opacity: 0.5;
+            filter: saturate(0.65) contrast(1.1) brightness(0.85);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(26,22,20,0.25) 0%, rgba(26,22,20,0.62) 100%);
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
             z-index: 10;
             text-align: center;
-            width: 100%;
-            max-width: 1200px;
+            max-width: 880px;
             padding: 0 40px;
         }
 
         .hero-content h1 {
-            font-family: 'Instrument Serif', serif;
-            font-size: 64px;
-            font-weight: 400;
+            font-size: clamp(38px, 5.5vw, 66px);
+            color: #F7F2EA;
+            margin-bottom: 28px;
+            text-shadow: 0 2px 24px rgba(0,0,0,0.25);
             line-height: 1.1;
-            margin: 0 0 24px 0;
-            color: #ffffff;
-            text-align: center;
         }
 
-        .hero-sub {
+        .hero-subheadline {
             font-family: 'Inter', sans-serif;
-            font-size: 20px;
+            font-size: clamp(17px, 2vw, 20px);
+            color: rgba(247,242,234,0.88);
             line-height: 1.6;
-            color: #ffffff;
-            opacity: 1;
-            max-width: 700px;
+            margin-bottom: 20px;
+        }
+
+        .hero-body {
+            font-size: 16px;
+            color: rgba(247,242,234,0.68);
+            max-width: 620px;
             margin: 0 auto 40px;
-            font-weight: 400;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
-        .btn {
-            background: var(--accent);
-            color: #000;
-            padding: 1.2rem 2.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.8rem;
-            transition: 0.3s;
-            display: inline-block;
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
         }
 
-        .btn:hover {
-            background: #d4d4d4;
-        }
-
-        /* The 3 Layers — Symmetrical Split */
-        @keyframes pulse { 0%,100% { box-shadow: 0 0 20px rgba(255,107,107,0.4); } 50% { box-shadow: 0 0 50px rgba(255,107,107,0.8); } }
-
-        .tl-section {
-            padding: 140px 5%;
-            background: #050505;
-        }
-        .tl-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .tl-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-        .tl-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-            font-weight: 400;
-            color: #ffffff;
-            margin-bottom: 1.25rem;
-        }
-        .tl-subtitle {
+        .hero-trust {
             font-family: 'Inter', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 400;
-            color: rgba(255,255,255,0.6);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
+            font-size: 12px;
+            color: rgba(247,242,234,0.45);
+            letter-spacing: 0.04em;
         }
-        .tl-body {
+
+        /* ──────────────────────────────────────────
+           SECTION 2 — THE OPPORTUNITY
+        ────────────────────────────────────────── */
+        .opportunity {
+            padding: 130px 5%;
+            background: var(--bg);
+        }
+
+        .opportunity-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
-            align-items: center;
-        }
-        /* --- Concentric Visual --- */
-        .tl-radar {
-            position: relative;
-            width: 500px;
-            height: 500px;
-            box-sizing: border-box;
-            flex-shrink: 0;
-            margin: 0 auto;
-        }
-        .tl-ring {
-            position: absolute;
-            border-radius: 50%;
-            box-sizing: border-box;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .tl-ring--outer {
-            width: 480px; height: 480px;
-            border: 1px solid rgba(255, 212, 59, 0.3);
-            background: rgba(255, 212, 59, 0.03);
-        }
-        .tl-ring--middle {
-            width: 300px; height: 300px;
-            border: 2px dashed #51cf66;
-            background: transparent;
-        }
-        .tl-ring--inner {
-            width: 120px; height: 120px;
-            background: #ff6b6b;
-            box-shadow: 0 0 30px rgba(255, 107, 107, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 3s ease-in-out infinite;
-            transition: box-shadow 0.3s ease;
-        }
-        /* Hover from cards → glow on rings */
-        .tl-body:has(.tl-card:nth-child(1):hover) .tl-ring--inner  { box-shadow: 0 0 60px rgba(255,107,107,0.8); }
-        .tl-body:has(.tl-card:nth-child(2):hover) .tl-ring--middle { border-color: #51cf66; filter: drop-shadow(0 0 8px #51cf66); }
-        .tl-body:has(.tl-card:nth-child(3):hover) .tl-ring--outer  { border-color: rgba(255,212,59,0.8); filter: drop-shadow(0 0 8px #ffd43b); }
-        /* ring labels */
-        .tl-ring-label {
-            position: absolute;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-        .tl-ring--outer  .tl-ring-label { color: #ffd43b; top: 14px; left: 50%; transform: translateX(-50%); }
-        .tl-ring--middle .tl-ring-label { color: #51cf66; top: 10px; left: 50%; transform: translateX(-50%); }
-        .tl-ring--inner  .tl-ring-label { color: #ffffff; font-size: 0.6rem; position: static; transform: none; }
-        /* --- Cards --- */
-        .tl-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .tl-card {
-            position: relative;
-            background: #0d0d0d;
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 32px 36px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-        }
-        .tl-card:nth-child(1) { border-left: 6px solid #ff6b6b; }
-        .tl-card:nth-child(2) { border-left: 6px solid #51cf66; }
-        .tl-card:nth-child(3) { border-left: 6px solid #ffd43b; }
-        .tl-card:nth-child(1):hover { transform: scale(1.02); box-shadow: -4px 0 20px rgba(255,107,107,0.4); }
-        .tl-card:nth-child(2):hover { transform: scale(1.02); box-shadow: -4px 0 20px rgba(81,207,102,0.4); }
-        .tl-card:nth-child(3):hover { transform: scale(1.02); box-shadow: -4px 0 20px rgba(255,212,59,0.4); }
-        .tl-card-num {
-            font-family: 'Instrument Serif', serif;
-            font-size: 3.75rem;
-            font-weight: 400;
-            line-height: 1;
-            position: absolute;
-            bottom: 10px; right: 20px;
-            opacity: 0.1;
-            user-select: none;
-        }
-        .tl-card:nth-child(1) .tl-card-num { color: #ff6b6b; }
-        .tl-card:nth-child(2) .tl-card-num { color: #51cf66; }
-        .tl-card:nth-child(3) .tl-card-num { color: #ffd43b; }
-        .tl-card-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.75rem;
-            font-weight: 400;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-        .tl-card-body {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.8);
-            font-weight: 300;
-        }
-        .tl-footer {
-            text-align: center;
-            margin-top: 80px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
-            letter-spacing: 0.19em;
-            text-transform: uppercase;
-            color: #ffd43b;
-        }
-
-        /* ── Services / Human Spotlight ── */
-        .services-section {
-            padding: 120px 5%;
-            background: #050505;
-            position: relative;
-            overflow: hidden;
-        }
-        /* grain overlay */
-        .services-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-            background-size: 200px 200px;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .services-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        /* header */
-        .svc-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.35);
-            margin-bottom: 1.25rem;
-        }
-        .svc-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.4rem, 5vw, 3.75rem);
-            font-weight: 400;
-            color: #fff;
-            margin-bottom: 0.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        /* SVG underline on "Real" */
-        .svc-underline-wrap {
-            position: relative;
-            display: inline-block;
-        }
-        .svc-underline-wrap svg {
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            overflow: visible;
-        }
-        .svc-underline-path {
-            stroke: #ffd43b;
-            stroke-width: 2.5;
-            fill: none;
-            stroke-linecap: round;
-            stroke-dasharray: 200;
-            stroke-dashoffset: 200;
-            transition: stroke-dashoffset 1s cubic-bezier(0.4,0,0.2,1);
-        }
-        .services-section.in-view .svc-underline-path { stroke-dashoffset: 0; }
-        .svc-desc {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 4rem;
-            margin-top: 1.25rem;
-            max-width: 640px;
-            line-height: 1.65;
-        }
-        .svc-desc .svc-human {
-            color: #fff;
-            animation: humanGlow 2.5s ease-in-out infinite;
-        }
-        @keyframes humanGlow {
-            0%,100% { text-shadow: none; }
-            50%      { text-shadow: 0 0 12px rgba(255,255,255,0.6); }
-        }
-        /* grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        /* magnetic card */
-        .service-card {
-            background: rgba(13,13,13,0.85);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 14px;
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: transform 0.15s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(40px);
-            will-change: transform;
-        }
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1);
-        }
-        /* spotlight radial gradient per card */
-        .service-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 14px;
-            background: radial-gradient(circle 180px at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.045) 0%, transparent 80%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        .service-card:hover::before { opacity: 1; }
-        /* glow border */
-        .service-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 14px;
-            border: 1px solid transparent;
-            background: radial-gradient(circle 120px at var(--mx,50%) var(--my,50%), rgba(255,212,59,0.35), transparent 70%) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        .service-card:hover::after { opacity: 1; }
-        /* icon area */
-        .svc-icon {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.7;
-        }
-        @keyframes blink   { 0%,100%{opacity:1} 50%{opacity:0} }
-        @keyframes writePen{ 0%{transform:translateX(0)} 50%{transform:translateX(4px)} 100%{transform:translateX(0)} }
-        @keyframes spinGlobe{ from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-        .icon-cursor { animation: blink 1.1s step-start infinite; font-size: 1.4rem; color: rgba(255,255,255,0.7); }
-        .icon-pen    { animation: writePen 1.6s ease-in-out infinite; font-size: 1.4rem; color: rgba(255,255,255,0.7); }
-        .icon-globe  { animation: spinGlobe 8s linear infinite; font-size: 1.4rem; color: rgba(255,255,255,0.7); display:inline-block; }
-        /* card typography */
-        .service-card h3 {
-            font-family: 'Instrument Serif', serif;
-            font-size: 2rem;
-            font-weight: 400;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
-        }
-        .service-card:hover h3 { color: #fff; }
-        .service-card p {
-            font-family: 'Inter', sans-serif;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.65;
-            font-size: 1rem;
-            font-weight: 300;
-            transition: color 0.3s ease;
-        }
-        .service-card:hover p { color: rgba(255,255,255,0.8); }
-        /* verified badge */
-        .svc-badge {
-            position: absolute;
-            bottom: 1.25rem;
-            right: 1.25rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.05em;
-            color: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 3px 7px;
-            border-radius: 3px;
-            transition: color 0.3s ease, border-color 0.3s ease;
-            white-space: nowrap;
-        }
-        .service-card:hover .svc-badge {
-            color: rgba(255,255,255,0.7);
-            border-color: rgba(255,255,255,0.35);
-        }
-
-        /* legacy selectors used by other sections */
-        .section-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-        .section-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-        .section-desc {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
-        }
-
-        /* ── Core Philosophy — Blueprint Grid ── */
-        @keyframes scanline {
-            from { top: 0;    opacity: 0.5; }
-            to   { top: 100%; opacity: 0;   }
-        }
-        /* ── Methodology — Split-View ── */
-        @keyframes barPulse {
-            0%,100% { transform: scaleY(0.3); opacity: 0.3; }
-            50%      { transform: scaleY(1);   opacity: 0.7; }
-        }
-        .steps-section {
-            background: #050505;
-            padding: 0 5%;
-        }
-        .meth-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1px 1fr;
             align-items: start;
         }
-        .meth-left {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 60px 60px 60px 0;
-        }
-        .meth-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.3);
-            margin-bottom: 1.5rem;
-        }
-        .meth-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2rem, 3.5vw, 3.25rem);
-            font-weight: 400;
-            color: #ffffff;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-        .meth-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.125rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        .meth-context {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
-            color: rgba(255,255,255,0.35);
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            border-left: 2px solid rgba(255,255,255,0.1);
-            padding-left: 12px;
-        }
-        .meth-indicator {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .meth-ind-step {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            color: rgba(255,255,255,0.2);
-            transition: color 0.4s ease;
-        }
-        .meth-ind-step.active { color: rgba(255,255,255,0.9); }
-        .meth-ind-dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-            transition: background 0.4s ease, box-shadow 0.4s ease;
-            flex-shrink: 0;
-        }
-        .meth-ind-step.active .meth-ind-dot {
-            background: #ffffff;
-            box-shadow: 0 0 8px rgba(255,255,255,0.6);
-        }
-        .meth-divider {
-            position: relative;
-            background: rgba(255,255,255,0.06);
-            align-self: stretch;
-        }
-        .meth-divider-fill {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4), transparent);
-            transform-origin: top;
-            transform: scaleY(0);
-            transition: transform 0.1s linear;
-        }
-        .meth-right { padding: 100px 0 100px 60px; }
-        .step-block {
-            min-height: unset;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 40px 0;
-            opacity: 0;
-            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.7s ease, transform 0.7s ease;
-            filter: blur(12px);
-            transform: translateY(24px);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-        .step-block:last-child { border-bottom: none; }
-        .step-block.visible { opacity: 1; filter: blur(0); transform: translateY(0); }
-        .step-num {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        .step-block[data-accent="red"]   .step-num { color: #ff6b6b; }
-        .step-block[data-accent="green"] .step-num { color: #51cf66; }
-        .step-block[data-accent="amber"] .step-num { color: #ffd43b; }
-        .step-block[data-accent="blue"]  .step-num { color: #74c0fc; }
-        .step-block h3 {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 400;
-            color: #ffffff;
-            margin-bottom: 1.25rem;
-        }
-        .step-block p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.0625rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.7);
-            font-weight: 300;
-            max-width: 520px;
-            margin-bottom: 2rem;
-        }
-        .del-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.25);
-            margin-bottom: 0.75rem;
-            margin-top: 1.75rem;
-        }
-        .deliverables {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 0.5rem;
-        }
-        .del-pill {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: rgba(255,255,255,0.7);
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 8px 14px;
-            border-radius: 4px;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
-            cursor: default;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .del-pill::before { content: '+'; opacity: 0.4; font-size: 0.7rem; }
-        .step-block[data-accent="red"]   .del-pill:hover { border-color: #ff6b6b; color: #ff6b6b; box-shadow: 0 0 10px rgba(255,107,107,0.2); }
-        .step-block[data-accent="green"] .del-pill:hover { border-color: #51cf66; color: #51cf66; box-shadow: 0 0 10px rgba(81,207,102,0.2); }
-        .step-block[data-accent="amber"] .del-pill:hover { border-color: #ffd43b; color: #ffd43b; box-shadow: 0 0 10px rgba(255,212,59,0.2); }
-        .step-block[data-accent="blue"]  .del-pill:hover { border-color: #74c0fc; color: #74c0fc; box-shadow: 0 0 10px rgba(116,192,252,0.2); }
-        .step-viz {
-            display: flex;
-            align-items: flex-end;
-            gap: 3px;
-            height: 20px;
-            margin-bottom: 1.5rem;
-            opacity: 0.5;
-        }
-        .step-viz span {
-            width: 3px;
-            background: currentColor;
-            border-radius: 2px;
-            animation: barPulse 1.2s ease-in-out infinite;
-        }
-        .step-block[data-accent="red"]   .step-viz { color: #ff6b6b; }
-        .step-block[data-accent="green"] .step-viz { color: #51cf66; }
-        .step-block[data-accent="amber"] .step-viz { color: #ffd43b; }
-        .step-block[data-accent="blue"]  .step-viz { color: #74c0fc; }
-        .step-viz span:nth-child(1) { animation-delay: 0s;    height: 40%; }
-        .step-viz span:nth-child(2) { animation-delay: 0.15s; height: 70%; }
-        .step-viz span:nth-child(3) { animation-delay: 0.3s;  height: 100%; }
-        .step-viz span:nth-child(4) { animation-delay: 0.45s; height: 55%; }
-        .step-viz span:nth-child(5) { animation-delay: 0.6s;  height: 30%; }
-        .meth-coda {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 80px 5%;
-            border-top: 1px solid rgba(255,255,255,0.07);
-        }
-        .meth-coda-path {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .meth-coda-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); }
-        .meth-coda-line { flex: 1; max-width: 60px; height: 1px; background: rgba(255,255,255,0.15); }
-        .meth-coda-final { width: 10px; height: 10px; border-radius: 50%; background: #ffd43b; box-shadow: 0 0 12px rgba(255,212,59,0.6); }
-        .meth-coda h3 { font-family: 'Instrument Serif', serif; font-size: clamp(1.8rem, 3.5vw, 2.25rem); font-weight: 400; color: #ffffff; margin-bottom: 0.75rem; }
-        .meth-coda p  { font-family: 'Inter', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.4); }
 
-        /* ── Core Philosophy: Cinematic Pillar ── */
-        .philosophy-section {
-            background: #050505;
-            padding: 100px 0 40px;
-            overflow: hidden;
+        .opportunity-layout h2 {
+            font-size: clamp(30px, 3.8vw, 46px);
         }
-        .phil-section-header {
-            text-align: center;
-            padding: 0 5%;
-            margin-bottom: 60px;
+
+        .opportunity-body p {
+            font-size: 18px;
+            margin-bottom: 22px;
+            color: var(--text-muted);
         }
-        .phil-section-header h2 {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 400;
-            color: #ffffff;
-            margin-bottom: 1rem;
+        .opportunity-body p:last-child { margin-bottom: 0; }
+
+        /* ──────────────────────────────────────────
+           SECTION 3 — THREE APPROACHES
+        ────────────────────────────────────────── */
+        .approaches {
+            padding: 120px 5%;
+            background: var(--bg-cream);
         }
-        .phil-section-header p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.125rem;
-            color: rgba(255,255,255,0.4);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+
+        .approaches-header {
+            margin-bottom: 64px;
         }
-        .phil-pillars {
-            display: flex;
-            width: 100%;
-            height: 680px;
+
+        .approaches-header h2 {
+            font-size: clamp(28px, 3.5vw, 42px);
+            max-width: 560px;
         }
-        .phil-pillar {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .approaches-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
-        .phil-pillar:hover { flex: 1.6; }
-        .phil-pillar-img {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: transform;
+
+        .approach-card {
+            background: var(--bg);
+            border-radius: 14px;
+            padding: 40px 32px;
+            transition: box-shadow 0.25s ease;
         }
-        .phil-pillar:hover .phil-pillar-img { transform: scale(1.05); }
-        .phil-pillar-scrim {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.18) 100%);
-            transition: background 0.6s ease;
+        .approach-card:hover {
+            box-shadow: 0 10px 36px rgba(26,22,20,0.09);
         }
-        .phil-pillar:hover .phil-pillar-scrim {
-            background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.28) 100%);
-        }
-        .phil-pillar::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='gp'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gp)' opacity='0.15'/%3E%3C/svg%3E");
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            pointer-events: none;
-            z-index: 2;
-        }
-        .phil-pillar:hover::after { opacity: 1; }
-        .phil-pillar-content {
-            position: absolute;
-            inset: 0;
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 28px 24px 36px;
-        }
-        .phil-pillar-num {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
+
+        .card-num {
+            font-family: 'Fraunces', serif;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 0.35em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.35);
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            align-self: flex-start;
-            line-height: 1;
+            color: var(--terracotta);
+            display: block;
+            margin-bottom: 18px;
         }
-        .phil-pillar-bottom {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+
+        .approach-card h3 {
+            font-size: 22px;
+            margin-bottom: 18px;
         }
-        .phil-pillar-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.35rem, 1.8vw, 2rem);
-            font-weight: 400;
-            color: #ffffff;
-            line-height: 1.2;
+
+        .approach-card p {
+            font-size: 15px;
+            margin-bottom: 16px;
         }
-        .phil-pillar-desc {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9375rem;
-            line-height: 1.65;
-            color: rgba(255,255,255,0.7);
-            font-weight: 300;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
-            max-width: 300px;
-        }
-        .phil-pillar:hover .phil-pillar-desc {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .phil-section-footer {
-            text-align: center;
-            padding: 32px 5% 0;
-        }
-        .phil-section-footer p {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
+
+        .approach-card .insight-line {
             font-style: italic;
-            color: rgba(255,255,255,0.45);
+            color: var(--moss);
+            font-size: 15px;
+            border-left: 2px solid var(--moss);
+            padding-left: 14px;
+            margin-bottom: 0;
         }
 
-        /* Comparison Table */
-        .comparison-section {
-            padding: 8rem 5%;
-            max-width: 1200px;
+        /* ──────────────────────────────────────────
+           SECTION 4 — THE INSIGHT
+        ────────────────────────────────────────── */
+        .insight {
+            padding: 130px 5%;
+            background: var(--bg);
+        }
+
+        .insight-inner {
+            max-width: 740px;
             margin: 0 auto;
+            text-align: center;
         }
 
-        .comparison-table {
-            margin-top: 4rem;
+        .insight-inner h2 {
+            font-size: clamp(30px, 4.2vw, 50px);
+            margin-bottom: 48px;
         }
 
-        .comparison-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 1rem;
-        }
-
-        .comparison-header div {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        .comparison-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .comparison-row:last-child {
-            border-bottom: none;
-        }
-
-        .col-benefit {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.2rem;
-            font-weight: 400;
-        }
-
-        .col-system,
-        .col-traditional {
-            font-size: 1rem;
-            font-weight: 300;
-            color: var(--text-muted);
-        }
-
-        .check {
-            color: var(--text-main);
-            margin-right: 0.5rem;
-        }
-
-        .cross {
-            color: #555;
-            margin-right: 0.5rem;
-        }
-
-        /* Contact Form Section */
-        .contact-section {
-            padding: 4rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Inline mini-form between sections */
-        .inline-form-bar {
-            background: #080808;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-            padding: 40px 5%;
-        }
-        .inline-form-bar form {
-            max-width: 860px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr auto;
-            gap: 12px;
-            align-items: center;
-        }
-        .inline-form-bar input {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #fff;
-            padding: 14px 18px;
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            border-radius: 4px;
-            width: 100%;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-        .inline-form-bar input:focus {
-            outline: none;
-            border-color: rgba(255,255,255,0.3);
-        }
-        .inline-form-bar input::placeholder { color: rgba(255,255,255,0.3); }
-        .inline-form-bar .form-submit {
-            white-space: nowrap;
-            margin-top: 0;
-            padding: 14px 24px;
-            font-size: 0.8rem;
-        }
-        @media (max-width: 768px) {
-            .inline-form-bar form {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .contact-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            margin-top: 4rem;
-            max-width: 800px;
+        .insight-inner p {
+            font-size: 18px;
+            margin-bottom: 22px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
-        .contact-stack .form-left h2 {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 400;
-            margin-bottom: 2rem;
-        }
-        .contact-stack .comparison-table {
-            margin-top: 0;
-        }
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            margin-top: 4rem;
+        .insight-inner p:last-child { margin-bottom: 0; }
+
+        /* ──────────────────────────────────────────
+           SECTION 5 — THE CATEGORY
+        ────────────────────────────────────────── */
+        .category {
+            padding: 120px 5%;
+            background: var(--text);
         }
 
-        .form-left h2 {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 3rem;
-            font-weight: 400;
+        .category .lead-in {
+            color: var(--gold);
         }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .category h2 {
+            color: var(--bg);
+            font-size: clamp(34px, 5vw, 56px);
+            margin-bottom: 20px;
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-main);
-            padding: 1.2rem 1.5rem;
-            font-size: 1rem;
+        .category-subhead {
             font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            border-radius: 4px;
-            transition: border-color 0.3s;
+            font-size: 17px;
+            color: rgba(247,242,234,0.6);
+            max-width: 580px;
+            line-height: 1.65;
+            margin-bottom: 72px;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: rgba(255,255,255,0.3);
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1px;
+            background: rgba(247,242,234,0.08);
         }
 
-        .form-group input::placeholder {
-            color: rgba(255,255,255,0.3);
+        .component {
+            background: var(--text);
+            padding: 40px 28px 44px;
+            transition: background 0.2s ease;
         }
+        .component:hover { background: #231e1b; }
 
-        .form-group select {
-            cursor: pointer;
-            color: rgba(255,255,255,0.5);
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a1a1a1' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1.5rem center;
-            padding-right: 3rem;
-        }
-
-        .form-group select option {
-            background: var(--card-bg);
-            color: var(--text-main);
-        }
-
-        .form-submit {
-            background: var(--accent);
-            color: #000;
-            border: none;
-            padding: 1.2rem 2.5rem;
-            font-size: 0.9rem;
+        .comp-num {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
             font-weight: 600;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background 0.3s;
-            border-radius: 4px;
-            margin-top: 1rem;
+            color: var(--gold);
+            margin-bottom: 22px;
         }
 
-        .form-submit:hover {
-            background: #d4d4d4;
+        .component h3 {
+            font-size: 18px;
+            color: var(--bg);
+            margin-bottom: 14px;
         }
 
-        .testimonials {
+        .component p {
+            font-size: 14px;
+            color: rgba(247,242,234,0.55);
+            line-height: 1.7;
+        }
+
+        /* ──────────────────────────────────────────
+           SECTION 6 — VERTICALS
+        ────────────────────────────────────────── */
+        .verticals {
+            padding: 120px 5%;
+            background: var(--bg-cream);
+        }
+
+        .verticals h2 {
+            font-size: clamp(28px, 3.8vw, 44px);
+            margin-bottom: 16px;
+        }
+
+        .section-subhead {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 520px;
+            line-height: 1.65;
+            margin-bottom: 64px;
+        }
+
+        .verticals-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .vertical-card {
+            background: var(--bg);
+            border-radius: 14px;
+            padding: 36px 26px;
+            transition: box-shadow 0.25s ease, transform 0.2s ease;
+        }
+        .vertical-card:hover {
+            box-shadow: 0 10px 30px rgba(26,22,20,0.1);
+            transform: translateY(-3px);
+        }
+
+        .vertical-bar {
+            display: block;
+            width: 36px;
+            height: 3px;
+            background: var(--terracotta);
+            border-radius: 2px;
+            margin-bottom: 24px;
+        }
+
+        .vertical-card h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .vertical-card p {
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* ──────────────────────────────────────────
+           SECTION 7 — HOW WE WORK
+        ────────────────────────────────────────── */
+        .how-we-work {
+            padding: 120px 5%;
+            background: var(--bg);
+        }
+
+        .how-we-work h2 {
+            font-size: clamp(26px, 3.5vw, 42px);
+            margin-bottom: 16px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        .product-card {
+            background: var(--bg-cream);
+            border-radius: 16px;
+            padding: 44px 36px;
+            transition: box-shadow 0.25s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 12px 40px rgba(26,22,20,0.1);
+        }
+
+        .product-card:nth-child(1) { border-top: 3px solid var(--moss); }
+        .product-card:nth-child(2) { border-top: 3px solid var(--terracotta); }
+        .product-card:nth-child(3) { border-top: 3px solid var(--gold); }
+
+        .product-num {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .product-card h3 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--terracotta);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .product-card p {
+            font-size: 15px;
+        }
+
+        .how-footnote {
+            text-align: center;
+            font-style: italic;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* ──────────────────────────────────────────
+           SECTION 8 — WHAT DEFINES THIS APPROACH
+        ────────────────────────────────────────── */
+        .defines {
+            padding: 120px 5%;
+            background: var(--bg-cream);
+        }
+
+        .defines h2 {
+            font-size: clamp(26px, 3.5vw, 42px);
+            margin-bottom: 64px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+
+        .pillar {
+            border-left: 2px solid var(--terracotta);
+            padding-left: 28px;
+        }
+
+        .pillar h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .pillar p { font-size: 16px; }
+
+        /* ──────────────────────────────────────────
+           SECTION 9 — FINAL CTA
+        ────────────────────────────────────────── */
+        .final-cta {
+            padding: 140px 5%;
+            background: var(--bg);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(28px, 4vw, 48px);
+            max-width: 680px;
+            margin: 0 auto 48px;
+        }
+
+        .final-cta-body {
+            max-width: 540px;
+            margin: 0 auto 52px;
+        }
+
+        .final-cta-body p {
+            font-size: 17px;
+            margin-bottom: 16px;
+        }
+        .final-cta-body p:last-child { margin-bottom: 0; }
+
+        .final-cta-actions {
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            align-items: center;
+            gap: 36px;
         }
 
-        .testimonial {
-            border: 1px solid var(--border);
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            background: var(--card-bg);
+        .final-cta-actions .btn-primary {
+            font-size: 16px;
+            padding: 18px 44px;
         }
 
-        .testimonial blockquote {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .testimonial cite {
-            font-size: 0.9rem;
-            font-style: normal;
+        .report-block p {
+            font-size: 15px;
             color: var(--text-muted);
-            font-weight: 400;
+            max-width: 480px;
+            margin: 0 auto 16px;
         }
 
-        /* Footer */
-        footer {
-            padding: 5rem 5%;
-            text-align: center;
-            color: #444;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            border-top: 1px solid var(--border);
+        /* ──────────────────────────────────────────
+           FOOTER
+        ────────────────────────────────────────── */
+        .site-footer {
+            background: var(--text);
+            padding: 80px 5% 48px;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) and (min-width: 768px) {
-            .tl-body { gap: 40px; }
-            .tl-radar { width: 360px; height: 360px; }
-            .tl-ring--outer  { width: 340px; height: 340px; }
-            .tl-ring--middle { width: 212px; height: 212px; }
-            .tl-ring--inner  { width: 85px;  height: 85px;  }
+        .footer-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
         }
 
-        @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .comparison-header {
-                display: none;
-            }
-
-            .comparison-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .col-benefit {
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 0.5rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-content h1 {
-                font-size: 40px;
-            }
-            header .btn {
-                font-size: 0.65rem;
-                padding: 0.8rem 1.4rem;
-            }
+        .footer-tagline {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--bg);
+            margin-bottom: 28px;
         }
 
-        @media (max-width: 640px) {
-            header {
-                padding: 1.5rem 5%;
-                justify-content: center;
+        .footer-geo,
+        .footer-verticals {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: rgba(247,242,234,0.45);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .footer-verticals {
+            letter-spacing: 0.04em;
+            margin-bottom: 52px;
+        }
+
+        .footer-hr {
+            height: 1px;
+            background: rgba(247,242,234,0.1);
+            border: none;
+            margin-bottom: 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 28px;
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .footer-links a {
+            color: rgba(247,242,234,0.45);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--bg); }
+
+        .footer-copy {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: rgba(247,242,234,0.28);
+        }
+
+        /* ──────────────────────────────────────────
+           PHOTO BANDS — diagonal clip cuts
+        ────────────────────────────────────────── */
+
+        /* All content sections sit above photo bands */
+        .hero,
+        .opportunity,
+        .approaches,
+        .insight,
+        .category,
+        .verticals,
+        .how-we-work,
+        .defines,
+        .final-cta,
+        .site-footer {
+            position: relative;
+            z-index: 2;
+        }
+
+        .photo-band {
+            position: relative;
+            height: 380px;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .photo-band img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 33%;
+            display: block;
+            filter: saturate(0.8) contrast(1.05) brightness(0.92);
+        }
+
+        /* pb-1: perfect as-is (380px, center 33%) */
+
+        .band-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 33%;
+            filter: saturate(0.8) contrast(1.05) brightness(0.92);
+        }
+
+        /* pb-2, pb-3, pb-4: 280px, encuadre subido */
+        .pb-3,
+        .pb-4 {
+            height: 310px;
+        }
+
+        .pb-3 img,
+        .pb-4 img {
+            object-position: center 20%;
+        }
+
+        /* h5 inline dentro de Opportunity */
+        .opportunity-img {
+            max-width: 520px;
+            margin: 64px auto 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .opportunity-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-band::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26,22,20,0.18);
+            pointer-events: none;
+        }
+
+        /* ──────────────────────────────────────────
+           SCROLL REVEAL
+        ────────────────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ──────────────────────────────────────────
+           RESPONSIVE
+        ────────────────────────────────────────── */
+        @media (max-width: 860px) {
+            .photo-band { height: 260px; }
+        }
+
+        @media (max-width: 540px) {
+            .photo-band { height: 200px; }
+        }
+
+        @media (max-width: 1100px) {
+            .components-grid { grid-template-columns: repeat(3, 1fr); }
+            .verticals-grid  { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 860px) {
+            .opportunity-layout { grid-template-columns: 1fr; gap: 40px; }
+            .approaches-grid    { grid-template-columns: 1fr; }
+            .products-grid      { grid-template-columns: 1fr; }
+            .pillars-grid       { grid-template-columns: 1fr; gap: 32px; }
+            .verticals-grid     { grid-template-columns: repeat(2, 1fr); }
+            .components-grid    { grid-template-columns: 1fr; }
+
+            .opportunity,
+            .approaches,
+            .insight,
+            .category,
+            .verticals,
+            .how-we-work,
+            .defines,
+            .final-cta { padding: 80px 5%; }
+
+            .hero-ctas { flex-direction: column; align-items: center; }
+            .btn-primary,
+            .btn-outline {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
             }
 
-            header .btn {
-                display: none;
-            }
+            .nav-cta { display: none; }
+        }
 
-            .logo {
-                font-size: 1.4rem;
-            }
-
-            .btn {
-                padding: 1rem 2rem;
-                font-size: 0.75rem;
-            }
-
-            .tl-section {
-                padding: 60px 5%;
-            }
-            .tl-body {
-                grid-template-columns: 1fr;
-            }
-            .tl-radar { width: 280px; height: 280px; }
-            .tl-ring--outer  { width: 268px; height: 268px; }
-            .tl-ring--middle { width: 168px; height: 168px; }
-            .tl-ring--inner  { width: 67px;  height: 67px;  font-size: 0.45rem; }
-            .tl-card { width: 100%; }
-
-            .services-section {
-                padding: 60px 5%;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .philosophy-section {
-                padding: 60px 0 60px;
-            }
-            .phil-pillars {
-                flex-direction: column;
-                height: auto;
-            }
-            .phil-pillar {
-                flex: none;
-                height: 300px;
-            }
-            .phil-pillar:hover { flex: none; }
-            .phil-pillar-num {
-                writing-mode: horizontal-tb;
-                transform: none;
-            }
-            /* methodology mobile */
-            .meth-inner {
-                grid-template-columns: 1fr;
-            }
-            .meth-divider { display: none; }
-            .meth-left {
-                position: static;
-                height: auto;
-                padding: 60px 0 30px;
-            }
-            .meth-right { padding: 0 0 60px; }
-            .step-block { min-height: unset; padding: 40px 0; }
-            .deliverables { gap: 8px; }
-            .steps-section,
-            .comparison-section,
-            .contact-section {
-                padding: 5rem 5%;
-            }
-
-            .service-card { padding: 2rem; }
+        @media (max-width: 540px) {
+            .verticals-grid { grid-template-columns: 1fr; }
+            .site-header { padding: 20px 5%; }
+            .hero-content { padding: 0 24px; }
         }
     </style>
 </head>
@@ -1229,492 +875,281 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-
-    <header>
-        <div class="logo"><img src="images/logocopyofficer.png" alt="CopyOfficer" style="height: 40px; width: auto; display: block;"></div>
-        <a href="#tell-us" class="btn">Start the Conversation</a>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="images/logocopyofficer.png" alt="CopyOfficer">
+        </div>
+        <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
     </header>
 
     <main>
-        <!-- HERO CINEMATOGRÁFICO -->
-        <section class="hero-video-container">
-            <video autoplay muted loop playsinline class="video-placeholder"><source src="videohero.mp4" type="video/mp4"></video>
+
+        <!-- SECTION 1 — HERO -->
+        <section class="hero" aria-label="Hero">
+            <img src="hispanics/h6.jpeg" alt="Hispanic market" class="hero-video">
             <div class="hero-content">
-                <h1>Your clients have Hispanic audiences.<br>You're under-monetizing them.</h1>
-                <p class="hero-sub">We build the bilingual customer journey, full funnel, written by humans who understand both cultures. White-label content partnership for agencies ready to capture missed Hispanic revenue.</p>
-                <a href="#tell-us" class="btn">Get Real Content</a>
+                <h1>American brands are leaving 30–40% of their Hispanic revenue on the table.</h1>
+                <p class="hero-subheadline">Some have started to approach the Hispanic market through translation.<br>A smaller group is starting to treat it as architecture.</p>
+                <p class="hero-body">We design and operate complete Hispanic acquisition systems for US brands in real estate, healthcare, financial services, retail and SaaS.</p>
+                <div class="hero-ctas">
+                    <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book a 30-min strategic call</a>
+                    <a href="#report" class="btn-outline">Get the Hispanic Market Report</a>
+                </div>
+                <p class="hero-trust">Trusted by brands across LA, Houston, Miami, Dallas, Phoenix, San Antonio, Chicago and NYC.</p>
             </div>
         </section>
 
-        <!-- SERVICES / HUMAN SPOTLIGHT -->
-        <section class="services-section" id="services">
-            <div class="services-inner">
-                <p class="svc-label">For Agencies</p>
-                <h2 class="svc-title">One gap in your offer. Two languages you're not serving.</h2>
-                <p class="svc-desc">Most agencies with Hispanic-audience clients are doing one of two things: translating English content badly, or not serving that market at all. Either way, their clients are losing the conversions they paid to generate.</p>
-
-                <div class="services-grid">
-                    <div class="service-card" data-index="0">
-                        <div class="svc-icon"><span class="icon-cursor">|</span></div>
-                        <h3>Full-Funnel Bilingual Strategy</h3>
-                        <p>Not individual pieces. A coherent narrative across every touchpoint — ads, landing pages, emails, follow-ups — in English and Spanish, built to move the same prospect through the same journey in both languages.</p>
-                        <span class="svc-badge">[ Verified Human ]</span>
+        <!-- SECTION 2 — THE OPPORTUNITY -->
+        <section class="opportunity">
+            <div class="inner">
+                <span class="rule"></span>
+                <div class="opportunity-layout">
+                    <div>
+                        <h2 class="reveal">More companies are beginning to notice the same pattern.</h2>
                     </div>
-                    <div class="service-card" data-index="1">
-                        <div class="svc-icon"><span class="icon-pen">&#9998;</span></div>
-                        <h3>Native, Not Translated</h3>
-                        <p>We write two primary documents, not one with a Spanish copy. Each version is built for its audience's decision triggers, cultural references, and language register. Your clients' Hispanic customers can tell the difference. They always could.</p>
-                        <span class="svc-badge">[ Verified Human ]</span>
-                    </div>
-                    <div class="service-card" data-index="2">
-                        <div class="svc-icon"><span class="icon-globe">&#9679;</span></div>
-                        <h3>White-Label Partnership</h3>
-                        <p>We work under your brand. You invoice the client, we deliver the content, you keep the margin. No new hires. No overhead. No briefing a freelancer who speaks Spanish but doesn't think strategically in it.</p>
-                        <span class="svc-badge">[ Verified Human ]</span>
+                    <div class="opportunity-body reveal reveal-delay-1">
+                        <p>The Hispanic segment holds strong demand, but the current setup doesn't fully capture it.</p>
+                        <p>When the approach is system-driven, the picture changes. Traffic behaves differently. Conversion stabilizes. Revenue becomes measurable.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="inline-form-bar">
-            <form>
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Work email" required>
-                <input type="text" name="website" placeholder="yourcompany.com" required>
-                <button type="submit" class="form-submit">Get Human Content</button>
-            </form>
+        <!-- PHOTO BAND 1 — between Opportunity and Approaches -->
+        <div class="photo-band pb-1">
+            <img src="hispanics/h1.jpeg" alt="Hispanic market urban scene">
         </div>
 
-        <!-- THE 3 LAYERS -->
-        <section class="tl-section">
-            <div class="tl-inner">
-                <div class="tl-header">
-                    <h2 class="tl-title">Most agencies skip 90% of the process</h2>
-                    <p class="tl-subtitle">They jump straight to content creation. We start where it actually matters: content strategy.</p>
+        <!-- SECTION 3 — THREE COMMON APPROACHES -->
+        <section class="approaches">
+            <div class="inner">
+                <div class="approaches-header">
+                    <span class="rule"></span>
+                    <h2 class="reveal">Three common approaches — and what each one misses.</h2>
                 </div>
-
-                <div class="tl-body">
-                    <!-- Left: Concentric Visual -->
-                    <div class="tl-radar">
-                        <div class="tl-ring tl-ring--outer">
-                            <span class="tl-ring-label">Creation</span>
-                        </div>
-                        <div class="tl-ring tl-ring--middle">
-                            <span class="tl-ring-label">Plan</span>
-                        </div>
-                        <div class="tl-ring tl-ring--inner">
-                            <span class="tl-ring-label">Strategy</span>
-                        </div>
+                <div class="approaches-grid">
+                    <div class="approach-card reveal">
+                        <span class="card-num">01</span>
+                        <h3>The translation</h3>
+                        <p>Many teams start by translating their website into Spanish and launching a few campaigns. Traffic appears, but user behavior often stays unchanged.</p>
+                        <p class="insight-line">Translation aligns language. Acquisition requires alignment in structure and decision flow.</p>
                     </div>
-
-                    <!-- Right: Cards -->
-                    <div class="tl-cards">
-                        <div class="tl-card">
-                            <span class="tl-card-num">01</span>
-                            <h3 class="tl-card-title">Content Strategy</h3>
-                            <p class="tl-card-body">Who are you talking to? What makes you different? What's your story? Answer these or your content sounds like everyone else's AI slop.</p>
-                        </div>
-                        <div class="tl-card">
-                            <span class="tl-card-num">02</span>
-                            <h3 class="tl-card-title">Content Plan</h3>
-                            <p class="tl-card-body">Which channels? What formats? What timeline? This is the system that turns strategy into repeatable execution.</p>
-                        </div>
-                        <div class="tl-card">
-                            <span class="tl-card-num">03</span>
-                            <h3 class="tl-card-title">Content Creation</h3>
-                            <p class="tl-card-body">The writing. The design. The video. This is where everyone starts. We get here last because strategy determines what to write.</p>
-                        </div>
+                    <div class="approach-card reveal reveal-delay-1">
+                        <span class="card-num">02</span>
+                        <h3>The freelancer</h3>
+                        <p>Some companies bring in bilingual freelancers or small agencies to manage this segment. Individual pieces can perform well, but the overall system lacks continuity.</p>
+                        <p class="insight-line">Without a unified structure, results don't accumulate over time.</p>
+                    </div>
+                    <div class="approach-card reveal reveal-delay-2">
+                        <span class="card-num">03</span>
+                        <h3>The one-off campaign</h3>
+                        <p>Others test a focused campaign for a period. Engagement increases and traffic grows. Without infrastructure, the impact on revenue remains difficult to track and improve.</p>
+                        <p class="insight-line">A system makes those signals usable.</p>
                     </div>
                 </div>
-
-                <p class="tl-footer">90% of businesses start at Layer 3. That's why their content is forgettable.</p>
             </div>
         </section>
 
-        <div class="inline-form-bar">
-            <form>
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Work email" required>
-                <input type="text" name="website" placeholder="yourcompany.com" required>
-                <button type="submit" class="form-submit">Get Human Content</button>
-            </form>
+        <!-- SECTION 4 — THE INSIGHT -->
+        <section class="insight">
+            <div class="inner">
+                <div class="insight-inner">
+                    <span class="lead-in">Across all these approaches, one idea becomes clear.</span>
+                    <span class="rule rule--center"></span>
+                    <h2 class="reveal">The Hispanic market responds best when treated as a system.</h2>
+                    <p class="reveal reveal-delay-1">Acquisition works when the structure reflects how this segment discovers, evaluates and decides.</p>
+                    <p class="reveal reveal-delay-2">What drives consistent results is a system that captures, identifies, segments and activates specifically for the Hispanic segment of your market. Built in both languages from the start. Tracked end to end. Optimized continuously.</p>
+                    <p class="reveal reveal-delay-3">This is where a growing number of brands are focusing their attention.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5 — THE CATEGORY -->
+        <section class="category">
+            <div class="inner">
+                <span class="lead-in">The category emerging from this shift is</span>
+                <h2 class="reveal">Hispanic Acquisition Architecture.</h2>
+                <p class="category-subhead reveal reveal-delay-1">A complete system composed of five components working together as one engine, designed for the Hispanic journey.</p>
+                <div class="components-grid">
+                    <div class="component reveal">
+                        <span class="comp-num">01</span>
+                        <h3>Source</h3>
+                        <p>We track where Hispanic prospects originate across paid, organic, referral and direct channels, maintaining clear attribution from first interaction to closed deal.</p>
+                    </div>
+                    <div class="component reveal reveal-delay-1">
+                        <span class="comp-num">02</span>
+                        <h3>Behavior</h3>
+                        <p>We capture how users interact with your site in both languages, allowing you to see distinct behavioral patterns and optimize each path with clarity.</p>
+                    </div>
+                    <div class="component reveal reveal-delay-2">
+                        <span class="comp-num">03</span>
+                        <h3>Identity</h3>
+                        <p>We connect anonymous traffic to identified users inside your CRM, structured by intent, stage and vertical.</p>
+                    </div>
+                    <div class="component reveal reveal-delay-3">
+                        <span class="comp-num">04</span>
+                        <h3>Segmentation</h3>
+                        <p>Audiences are defined specifically for the Hispanic segment across ads, email and CRM systems, enabling precise communication at each stage.</p>
+                    </div>
+                    <div class="component reveal reveal-delay-4">
+                        <span class="comp-num">05</span>
+                        <h3>Activation</h3>
+                        <p>Campaigns, content and conversion paths are designed around how Hispanic buyers evaluate and decide, with native bilingual execution and vertical-specific experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6 — VERTICALS -->
+        <section class="verticals">
+            <div class="inner">
+                <span class="rule rule--moss"></span>
+                <h2 class="reveal">We operate in five verticals with depth.</h2>
+                <p class="section-subhead reveal reveal-delay-1">This focus allows patterns to emerge faster and systems to mature with more precision.</p>
+                <div class="verticals-grid">
+                    <div class="vertical-card reveal">
+                        <span class="vertical-bar"></span>
+                        <h3>Real Estate</h3>
+                        <p>Acquisition systems are designed to align with how Hispanic buyers move from first interest to closing.</p>
+                    </div>
+                    <div class="vertical-card reveal reveal-delay-1">
+                        <span class="vertical-bar"></span>
+                        <h3>Healthcare</h3>
+                        <p>Patient acquisition flows are structured to maintain continuity from booking through follow-up.</p>
+                    </div>
+                    <div class="vertical-card reveal reveal-delay-2">
+                        <span class="vertical-bar"></span>
+                        <h3>Financial Services</h3>
+                        <p>Systems are built to capture and manage Hispanic capital flows with clarity and control.</p>
+                    </div>
+                    <div class="vertical-card reveal reveal-delay-3">
+                        <span class="vertical-bar"></span>
+                        <h3>Retail and E-commerce</h3>
+                        <p>Acquisition stacks are redesigned to align user experience and conversion paths with Hispanic buyers.</p>
+                    </div>
+                    <div class="vertical-card reveal reveal-delay-4">
+                        <span class="vertical-bar"></span>
+                        <h3>SaaS</h3>
+                        <p>Expansion systems are built to engage Hispanic-owned businesses with relevant positioning and access paths.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 — HOW WE WORK -->
+        <section class="how-we-work">
+            <div class="inner">
+                <span class="rule"></span>
+                <h2 class="reveal">Three productized engagements with defined scope and outcomes.</h2>
+                <p class="section-subhead reveal reveal-delay-1">Each step builds on the previous one.</p>
+                <div class="products-grid">
+                    <div class="product-card reveal">
+                        <span class="product-num">01</span>
+                        <h3>Audit</h3>
+                        <span class="product-price">Two weeks · starting at $2,500</span>
+                        <p>A full diagnosis of your current Hispanic acquisition system, with a detailed document outlining gaps, priorities and expected impact.</p>
+                    </div>
+                    <div class="product-card reveal reveal-delay-1">
+                        <span class="product-num">02</span>
+                        <h3>Build</h3>
+                        <span class="product-price">Six to ten weeks · starting at $12,000</span>
+                        <p>Implementation of the full architecture, including tracking, landing pages, nurturing sequences, lead scoring and dashboards.</p>
+                    </div>
+                    <div class="product-card reveal reveal-delay-2">
+                        <span class="product-num">03</span>
+                        <h3>Operations</h3>
+                        <span class="product-price">Monthly retainer · starting at $6,000</span>
+                        <p>Ongoing management and optimization with continuous iteration, content and reporting.</p>
+                    </div>
+                </div>
+                <p class="how-footnote reveal">Most clients follow a progression from Audit to Build to Operations as the system takes shape and scales.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 8 — WHAT DEFINES THIS APPROACH -->
+        <section class="defines">
+            <div class="inner">
+                <h2 class="reveal">What defines this approach</h2>
+                <div class="pillars-grid">
+                    <div class="pillar reveal">
+                        <h3>Architecture over tactics</h3>
+                        <p>The output is infrastructure that continues to perform.</p>
+                    </div>
+                    <div class="pillar reveal reveal-delay-1">
+                        <h3>Native bilingual operation</h3>
+                        <p>Both languages are treated as primary from the start.</p>
+                    </div>
+                    <div class="pillar reveal reveal-delay-2">
+                        <h3>Full-funnel ownership</h3>
+                        <p>Performance is measured across the full acquisition process.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHOTO BAND — between Defines and Final CTA -->
+        <div class="photo-band pb-4">
+            <img src="hispanics/h2.jpeg" alt="Hispanic community and culture">
         </div>
 
-        <!-- METHODOLOGY -->
-        <section class="steps-section" id="methodology">
-            <div class="meth-inner">
-                <!-- LEFT: sticky panel -->
-                <div class="meth-left">
-                    <p class="meth-label">Methodology</p>
-                    <h2 class="meth-title">Most agencies start at the end. We don't.</h2>
-                    <p class="meth-subtitle">Understand the customer. Build the system. Then <em>execute</em>.</p>
-                    <p class="meth-context">These are the exact steps we follow with every client, each one delivering tangible output before the next begins.</p>
-                    <div class="meth-indicator">
-                        <div class="meth-ind-step active" data-target="0">
-                            <div class="meth-ind-dot"></div>
-                            <span>COGNITIVE MAPPING</span>
-                        </div>
-                        <div class="meth-ind-step" data-target="1">
-                            <div class="meth-ind-dot"></div>
-                            <span>ACQUISITION CONTENT</span>
-                        </div>
-                        <div class="meth-ind-step" data-target="2">
-                            <div class="meth-ind-dot"></div>
-                            <span>CONVERSION CONTENT</span>
-                        </div>
-                        <div class="meth-ind-step" data-target="3">
-                            <div class="meth-ind-dot"></div>
-                            <span>RETENTION CONTENT</span>
-                        </div>
-                    </div>
+        <!-- SECTION 9 — FINAL CTA -->
+        <section class="final-cta" id="report">
+            <div class="inner">
+                <span class="rule rule--center"></span>
+                <h2 class="reveal">If you want to explore how this could look in your case</h2>
+                <div class="final-cta-body reveal reveal-delay-1">
+                    <p>Book a 30-minute strategic call. The first part focuses on understanding your business. The second part maps where your current system can evolve and what it would take to get there.</p>
+                    <p>Direct, structured, and useful.</p>
                 </div>
-
-                <!-- Divider -->
-                <div class="meth-divider">
-                    <div class="meth-divider-fill" id="methDividerFill"></div>
-                </div>
-
-                <!-- RIGHT: scrollable steps -->
-                <div class="meth-right">
-                    <div class="step-block" data-accent="red" data-step="0">
-                        <div class="step-viz"><span></span><span></span><span></span><span></span><span></span></div>
-                        <p class="step-num">Step 01</p>
-                        <h3>Cognitive Mapping</h3>
-                        <p>We map your customer's mental model: what they believe, what they expect, and what transformation they're seeking. We identify the tension that drives them from A to C.</p>
-                        <p class="del-label">Deliverables</p>
-                        <div class="deliverables">
-                            <span class="del-pill">Market tension analysis</span>
-                            <span class="del-pill">ICP cognitive model</span>
-                            <span class="del-pill">A → C transformation map</span>
-                            <span class="del-pill">Funnel friction audit</span>
-                            <span class="del-pill">Bilingual insights (EN/ES)</span>
-                        </div>
+                <div class="final-cta-actions reveal reveal-delay-2">
+                    <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book the call</a>
+                    <div class="report-block">
+                        <p>You can also download the Hispanic Market Report, a 25-page breakdown of where revenue is being unlocked and how the system behind it is built.</p>
+                        <a href="#" class="btn-link">Download the Report</a>
                     </div>
-
-                    <div class="step-block" data-accent="green" data-step="1">
-                        <div class="step-viz"><span></span><span></span><span></span><span></span><span></span></div>
-                        <p class="step-num">Step 02</p>
-                        <h3>Acquisition Content</h3>
-                        <p>We write first-touch content that stops scrolls and sets real expectations. Ads written by humans who understand what makes people click. English + Spanish for the Hispanic market.</p>
-                        <p class="del-label">Deliverables</p>
-                        <div class="deliverables">
-                            <span class="del-pill">Ad creative (Meta, Google)</span>
-                            <span class="del-pill">Hook library</span>
-                            <span class="del-pill">Bilingual ad sets (EN/ES)</span>
-                            <span class="del-pill">A/B testing protocol</span>
-                            <span class="del-pill">Performance tracking</span>
-                        </div>
-                    </div>
-
-                    <div class="step-block" data-accent="amber" data-step="2">
-                        <div class="step-viz"><span></span><span></span><span></span><span></span><span></span></div>
-                        <p class="step-num">Step 03</p>
-                        <h3>Conversion Content</h3>
-                        <p>We build landing pages and sales content that maintain the same narrative frame. No cognitive friction between what the ad promised and what the page delivers.</p>
-                        <p class="del-label">Deliverables</p>
-                        <div class="deliverables">
-                            <span class="del-pill">Landing page architecture (EN/ES)</span>
-                            <span class="del-pill">Sales page structure</span>
-                            <span class="del-pill">Value proposition hierarchy</span>
-                            <span class="del-pill">Objection-handling framework</span>
-                            <span class="del-pill">Conversion optimization roadmap</span>
-                        </div>
-                    </div>
-
-                    <div class="step-block" data-accent="blue" data-step="3">
-                        <div class="step-viz"><span></span><span></span><span></span><span></span><span></span></div>
-                        <p class="step-num">Step 04</p>
-                        <h3>Retention Content</h3>
-                        <p>We write email sequences and follow-ups that continue the same story. Human language that nurtures belief, reduces friction, and moves customers toward transformation. Not robotic drip campaigns.</p>
-                        <p class="del-label">Deliverables</p>
-                        <div class="deliverables">
-                            <span class="del-pill">Email nurture flows (EN/ES)</span>
-                            <span class="del-pill">Follow-up sequences</span>
-                            <span class="del-pill">Re-engagement campaigns</span>
-                            <span class="del-pill">Retention content calendar</span>
-                            <span class="del-pill">Editorial consistency system</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="meth-coda">
-                <div class="meth-coda-path">
-                    <div class="meth-coda-dot"></div>
-                    <div class="meth-coda-line"></div>
-                    <div class="meth-coda-dot"></div>
-                    <div class="meth-coda-line"></div>
-                    <div class="meth-coda-dot"></div>
-                    <div class="meth-coda-line"></div>
-                    <div class="meth-coda-final"></div>
-                </div>
-                <h3>One system. One narrative.</h3>
-                <p>We build in order. Because it works.</p>
-            </div>
-        </section>
-
-        <div class="inline-form-bar">
-            <form>
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Work email" required>
-                <input type="text" name="website" placeholder="yourcompany.com" required>
-                <button type="submit" class="form-submit">Get Human Content</button>
-            </form>
-        </div>
-
-        <!-- PHILOSOPHY -->
-        <section class="philosophy-section">
-            <div class="phil-section-header">
-                <h2>How content strategy drives conversion</h2>
-                <p>Four principles we treat as law — not theory.</p>
-            </div>
-
-            <div class="phil-pillars">
-
-                <!-- Pillar 01 -->
-                <div class="phil-pillar">
-                    <div class="phil-pillar-img" style="background-image: url('images/1q.jpeg');"></div>
-                    <div class="phil-pillar-scrim"></div>
-                    <div class="phil-pillar-content">
-                        <span class="phil-pillar-num">Principle 01</span>
-                        <div class="phil-pillar-bottom">
-                            <h3 class="phil-pillar-title">Everything begins with tension</h3>
-                            <p class="phil-pillar-desc">There is no demand without tension. We don't manufacture it. We detect it.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pillar 02 -->
-                <div class="phil-pillar">
-                    <div class="phil-pillar-img" style="background-image: url('images/2q.jpeg');"></div>
-                    <div class="phil-pillar-scrim"></div>
-                    <div class="phil-pillar-content">
-                        <span class="phil-pillar-num">Principle 02</span>
-                        <div class="phil-pillar-bottom">
-                            <h3 class="phil-pillar-title">Content is the full path</h3>
-                            <p class="phil-pillar-desc">One story. No breaks. From first ad to final email, if the narrative breaks, the customer abandons.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pillar 03 -->
-                <div class="phil-pillar">
-                    <div class="phil-pillar-img" style="background-image: url('images/3q.jpeg');"></div>
-                    <div class="phil-pillar-scrim"></div>
-                    <div class="phil-pillar-content">
-                        <span class="phil-pillar-num">Principle 03</span>
-                        <div class="phil-pillar-bottom">
-                            <h3 class="phil-pillar-title">Engagement is hypothesis testing</h3>
-                            <p class="phil-pillar-desc">Every click is a test. The customer asks: "Will this clarify my path?" If yes, belief strengthens.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pillar 04 -->
-                <div class="phil-pillar">
-                    <div class="phil-pillar-img" style="background-image: url('images/4q.jpeg');"></div>
-                    <div class="phil-pillar-scrim"></div>
-                    <div class="phil-pillar-content">
-                        <span class="phil-pillar-num">Principle 04</span>
-                        <div class="phil-pillar-bottom">
-                            <h3 class="phil-pillar-title">Metrics are reality feedback</h3>
-                            <p class="phil-pillar-desc">Numbers don't lie about narrative. If metrics break, the narrative violates the mental model.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="phil-section-footer">
-                <p>Four laws. One system. Everything we build traces back to these.</p>
-            </div>
-        </section>
-
-        <!-- CONTACT FORM -->
-        <section class="contact-section" id="contact">
-            <div class="section-label">Get Started</div>
-            <h2 class="section-title">Done with robotic content?</h2>
-
-            <div class="contact-stack">
-                <div class="comparison-table">
-                    <div class="section-label" style="margin-bottom:1.5rem;">The Difference</div>
-                    <div class="comparison-header">
-                        <div>WHAT MATTERS</div>
-                        <div>HUMAN WRITERS</div>
-                        <div>AI-GENERATED SLOP</div>
-                    </div>
-
-                    <div class="comparison-row">
-                        <div class="col-benefit">Voice & Tone</div>
-                        <div class="col-system"><span class="check">✓</span>Sounds like a real person</div>
-                        <div class="col-traditional"><span class="cross">✗</span>Robotic corporate speak</div>
-                    </div>
-
-                    <div class="comparison-row">
-                        <div class="col-benefit">Emotional Resonance</div>
-                        <div class="col-system"><span class="check">✓</span>Actually connects with readers</div>
-                        <div class="col-traditional"><span class="cross">✗</span>Generic feel-good fluff</div>
-                    </div>
-
-                    <div class="comparison-row">
-                        <div class="col-benefit">Conversion Impact</div>
-                        <div class="col-system"><span class="check">✓</span>Hooks that stop scrolls, CTAs that convert</div>
-                        <div class="col-traditional"><span class="cross">✗</span>Predictable templates everyone ignores</div>
-                    </div>
-
-                    <div class="comparison-row">
-                        <div class="col-benefit">Brand Perception</div>
-                        <div class="col-system"><span class="check">✓</span>Professional, trustworthy, real</div>
-                        <div class="col-traditional"><span class="cross">✗</span>"This was clearly written by ChatGPT"</div>
-                    </div>
-                </div>
-
-                <div class="form-left">
-                    <h2 id="tell-us">Tell us about your business.</h2>
-
-                    <form class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" name="name" placeholder="Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" placeholder="Work email" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" name="website" placeholder="yourcompany.com" required>
-                        </div>
-
-                        <button type="submit" class="form-submit">Get Human Content</button>
-                    </form>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <footer>
-        EST. 2026 SYSTEM ALIGNMENT. HUMAN WRITING THAT CONVERTS. ALL RIGHTS RESERVED.
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-tagline">Hispanic Acquisition Architecture for US brands.</p>
+            <p class="footer-geo">Serving US brands across Los Angeles, Houston, Miami, San Antonio, Dallas, Phoenix, Chicago, NYC, Riverside and Orlando.</p>
+            <p class="footer-verticals">Real Estate · Healthcare · Financial Services · Retail and E-commerce · SaaS</p>
+            <hr class="footer-hr">
+            <nav aria-label="Footer navigation">
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Verticals</a></li>
+                    <li><a href="#">Approach</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener">Book a Call</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </nav>
+            <p class="footer-copy">© 2026 CopyOfficer. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
-    /* ── Methodology: Split-View scroll indicator + divider fill ── */
+    /* Scroll reveal */
     (function () {
-        const stepBlocks  = document.querySelectorAll('.step-block');
-        const indSteps    = document.querySelectorAll('.meth-ind-step');
-        const dividerFill = document.getElementById('methDividerFill');
-
-        /* Blur-to-focus reveal via IntersectionObserver */
-        const revealIO = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('visible');
-                /* update step indicator */
-                const idx = entry.target.dataset.step;
-                indSteps.forEach(s => s.classList.remove('active'));
-                const active = document.querySelector(`.meth-ind-step[data-target="${idx}"]`);
-                if (active) active.classList.add('active');
-            });
-        }, { threshold: 0.5 });
-        stepBlocks.forEach(b => revealIO.observe(b));
-
-        /* Divider fill on scroll */
-        const section = document.querySelector('.steps-section');
-        if (section && dividerFill) {
-            window.addEventListener('scroll', () => {
-                const r = section.getBoundingClientRect();
-                const progress = Math.max(0, Math.min(1, -r.top / (r.height - window.innerHeight)));
-                dividerFill.style.transform = `scaleY(${progress})`;
-                dividerFill.style.height = '100%';
-            }, { passive: true });
-        }
-    })();
-
-
-    (function () {
-        const section = document.querySelector('.services-section');
-        const cards   = document.querySelectorAll('.service-card');
-        const isMobile = () => window.innerWidth < 768;
-
-        /* ── 1. IntersectionObserver: stagger entrance + SVG underline ── */
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                section.classList.add('in-view');
-                cards.forEach((card, i) => {
-                    setTimeout(() => card.classList.add('visible'), i * 150);
-                });
-                io.disconnect();
-            });
-        }, { threshold: 0.15 });
-        if (section) io.observe(section);
-
-        /* ── 2. Mouse spotlight + magnetic tilt on cards ── */
-        cards.forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const r  = card.getBoundingClientRect();
-                const mx = e.clientX - r.left;
-                const my = e.clientY - r.top;
-
-                /* spotlight CSS vars */
-                card.style.setProperty('--mx', mx + 'px');
-                card.style.setProperty('--my', my + 'px');
-
-                /* magnetic tilt — disabled on mobile */
-                if (!isMobile()) {
-                    const cx = r.width  / 2;
-                    const cy = r.height / 2;
-                    const rx = ((my - cy) / cy) * -8;
-                    const ry = ((mx - cx) / cx) *  8;
-                    card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
+        const els = document.querySelectorAll('.reveal');
+        const io  = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
                 }
             });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
-        });
+        }, { threshold: 0.12 });
+        els.forEach(el => io.observe(el));
     })();
-    </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const forms = document.querySelectorAll('form');
-
-        forms.forEach(function(form) {
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-
-                const formData = {
-                    name:    form.querySelector('input[name="name"]').value,
-                    email:   form.querySelector('input[name="email"]').value,
-                    website: form.querySelector('input[name="website"]').value
-                };
-
-                const submitButton = form.querySelector('button[type="submit"]');
-                const originalText = submitButton.textContent;
-                submitButton.textContent = 'Sending...';
-                submitButton.disabled = true;
-
-                try {
-                    const response = await fetch('https://hook.eu1.make.com/8v6xrxomb1ysokwyfruxwpk8vv83m3yp', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(formData)
-                    });
-
-                    if (response.ok) {
-                        alert('Thanks! We\'ll be in touch soon.');
-                        form.reset();
-                    } else {
-                        alert('Something went wrong. Please try again.');
-                    }
-                } catch (error) {
-                    alert('Something went wrong. Please try again.');
-                } finally {
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                }
-            });
-        });
-    });
     </script>
 </body>
 </html>
