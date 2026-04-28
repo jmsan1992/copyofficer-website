@@ -1,5 +1,5 @@
 (function () {
-  var WEBHOOK = 'https://hook.eu1.make.com/15293rxgo1jmbcwclnjc3t7xesfifvdo';
+  var WEBHOOK = 'https://hook.eu1.make.com/15293rxgo1jmbcwlcnjc3t7xesfifvdo';
 
   /* ── UTM helpers ── */
   function getUtmsFromUrl() {
