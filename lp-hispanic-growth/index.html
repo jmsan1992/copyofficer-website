@@ -8,597 +8,701 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TJ99WQLT');</script>
     <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>CopyOfficer | Bilingual Growth for Agencies</title>
+    <title>CopyOfficer | Hispanic Acquisition Architecture</title>
+    <meta name="description" content="We design, build, and operate the complete acquisition system for the Hispanic segment of your business, end to end.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg: #f7f6f3;
-            --bg-alt: #eeecea;
-            --card-bg: #ffffff;
-            --border: rgba(0,0,0,0.08);
-            --text-main: #0d0d0d;
-            --text-muted: #777672;
-            --amber: #c49a00;
-            --amber-bg: #fffbea;
-            --amber-border: rgba(196,154,0,0.2);
-            --red: #d93025;
-            --green: #1a7a3c;
-            --blue: #1a5fa8;
+            --bg:         #F7F2EA;
+            --bg-cream:   #EDE5D6;
+            --text:       #1A1614;
+            --text-mid:   #3D3330;
+            --text-muted: #6B5F59;
+            --terracotta: #C2492C;
+            --terra-dark: #A33A20;
+            --moss:       #3D5240;
+            --gold:       #C8941A;
+            --accent:     #E8A87C;
+            --max-w:      1200px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
+            background: var(--bg);
+            color: var(--text);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
+        h1, h2, h3 {
+            font-family: 'Flechatest', 'Times New Roman', sans-serif;
+            line-height: 1.1;
+        }
+
+        p { line-height: 1.65; color: var(--text-muted); }
+
+        .inner { max-width: var(--max-w); margin: 0 auto; }
+
+        /* ── LEAD-IN ── */
+        .lead-in {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 16px;
+        }
+
+        /* ── RULE ── */
+        .rule {
+            display: block;
+            width: 56px;
+            height: 2px;
+            background: var(--terracotta);
+            border: none;
+            margin: 0 auto 32px;
+        }
+        .rule--left { margin: 0 0 32px; }
+        .rule--moss { background: var(--moss); }
+
+        /* ── BUTTONS ── */
+        .btn-primary {
+            display: inline-block;
+            background: var(--terracotta);
+            color: #F7F2EA;
+            text-decoration: none;
+            padding: 16px 32px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-primary:hover {
+            background: var(--terra-dark);
+            box-shadow: 0 6px 22px rgba(194,73,44,0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-dark {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-mid);
+            text-decoration: none;
+            padding: 16px 32px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1.5px solid rgba(61,51,48,0.4);
+            border-radius: 3px;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .btn-outline-dark:hover {
+            border-color: var(--terracotta);
+            color: var(--terracotta);
+        }
+
+        .btn-outline-light {
+            display: inline-block;
+            background: transparent;
+            color: rgba(247,242,234,0.85);
+            text-decoration: none;
+            padding: 16px 32px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1.5px solid rgba(247,242,234,0.35);
+            border-radius: 3px;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+        .btn-outline-light:hover {
+            border-color: #F7F2EA;
+            background: rgba(247,242,234,0.08);
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 5%;
+            background: transparent;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease;
+        }
+        .site-header.scrolled {
+            background: rgba(26,22,20,0.92);
+            backdrop-filter: blur(8px);
+        }
+        .logo img { height: 56px; width: auto; }
+        .nav-cta {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #F7F2EA;
+            text-decoration: none;
+            border: 1.5px solid rgba(247,242,234,0.45);
+            padding: 10px 22px;
+            border-radius: 3px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .nav-cta:hover {
+            border-color: #F7F2EA;
+            background: rgba(247,242,234,0.08);
+        }
+
         /* ── HERO ── */
         .hero {
             position: relative;
-            min-height: 70vh;
+            min-height: 72vh;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid var(--border);
-            padding: 80px 6%;
             overflow: hidden;
-            background: #000;
+            background: var(--text);
         }
 
         .hero-video {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            opacity: 0.38;
-            filter: saturate(0.25) contrast(1.2);
+            opacity: 0.45;
+            filter: saturate(0.3) contrast(1.1);
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 100%);
+            background: linear-gradient(160deg, rgba(26,22,20,0.45) 0%, rgba(26,22,20,0.82) 100%);
         }
 
         .hero-inner {
             position: relative;
             z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
             width: 100%;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 120px 5% 80px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
         }
 
-        .hero-left .hero-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: #ffd43b;
+        .hero-label {
             display: block;
-            margin-bottom: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
         }
 
-        .hero-left h1 {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.8rem, 4.5vw, 4.2rem);
-            font-weight: 400;
-            line-height: 1.08;
-            color: #ffffff;
+        .hero-inner h1 {
+            font-family: 'Flechatest', 'Times New Roman', sans-serif;
+            font-size: clamp(32px, 4.5vw, 58px);
+            font-weight: 700;
+            color: #F7F2EA;
+            line-height: 1.06;
         }
 
         .hero-right {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 28px;
         }
 
-        .hero-right .hero-sub {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.15rem;
-            line-height: 1.75;
-            color: rgba(255,255,255,0.75);
-            font-weight: 300;
-        }
-
-        .cta-stack {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.85rem;
-        }
-
-        .btn-primary {
-            background: #ffffff;
-            color: #000000;
-            padding: 1.1rem 2.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.9rem;
-            transition: background 0.2s ease;
-            display: inline-block;
-            white-space: nowrap;
-        }
-
-        .btn-primary:hover { background: #e0e0e0; }
-
-        .btn-secondary {
-            background: transparent;
-            color: rgba(255,255,255,0.8);
-            padding: 1rem 2.25rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(255,255,255,0.35);
-            transition: border-color 0.2s ease, color 0.2s ease;
-            display: inline-block;
-            white-space: nowrap;
-        }
-
-        .btn-secondary:hover { border-color: rgba(255,255,255,0.8); color: #ffffff; }
-
-        /* Override btn styles inside white sections */
-        .wl-cta .btn-primary,
-        .process-coda .btn-primary {
-            background: var(--text-main);
-            color: #ffffff;
-        }
-        .wl-cta .btn-primary:hover,
-        .process-coda .btn-primary:hover { background: #333; }
-
-        .wl-cta .btn-secondary,
-        .process-coda .btn-secondary {
-            color: var(--text-muted);
-            border-color: rgba(0,0,0,0.18);
-        }
-        .wl-cta .btn-secondary:hover,
-        .process-coda .btn-secondary:hover { border-color: rgba(0,0,0,0.45); color: var(--text-main); }
-
-        .cta-microcopy {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.4);
-            letter-spacing: 0.02em;
-        }
-
-        .process-coda .cta-microcopy { color: #aaa9a6; }
-
-        /* ── SECTION COMMONS ── */
-        section {
-            padding: 80px 6%;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: var(--text-muted);
+        .hero-sep {
             display: block;
-            margin-bottom: 1rem;
+            width: 44px;
+            height: 2px;
+            background: var(--terracotta);
+            border-radius: 2px;
         }
 
-        .section-label.amber { color: var(--amber); }
-
-        .section-h2 {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.2rem, 3.5vw, 3.1rem);
-            font-weight: 400;
-            color: var(--text-main);
-            line-height: 1.15;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-sub {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-            max-width: 620px;
-            margin-bottom: 2.5rem;
-        }
-
-        /* ── PROBLEM SECTION ── */
-        .problem-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .scenario-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.75rem;
-        }
-
-        .scenario-card:nth-child(1) { border-top: 3px solid var(--red); }
-        .scenario-card:nth-child(2) { border-top: 3px solid var(--amber); }
-
-        .scenario-num {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .scenario-card:nth-child(1) .scenario-num { color: var(--red); }
-        .scenario-card:nth-child(2) .scenario-num { color: var(--amber); }
-
-        .scenario-card h3 {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--text-main);
-            margin-bottom: 0.6rem;
-        }
-
-        .scenario-card p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-
-        .problem-bridge {
-            padding: 1.5rem 1.25rem;
-            border-left: 2px solid rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-
-        .problem-bridge p {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.45rem;
-            color: #555;
-            line-height: 1.55;
-            margin-bottom: 0.6rem;
-        }
-
-        .problem-bridge p:last-child { margin-bottom: 0; }
-
-        .soft-cta-box {
-            background: var(--amber-bg);
-            border: 1px solid var(--amber-border);
-            border-radius: 8px;
-            padding: 1.5rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .soft-cta-box p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .soft-cta-box a {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--amber);
-            text-decoration: none;
-            border-bottom: 1px solid var(--amber-border);
-            padding-bottom: 2px;
-            white-space: nowrap;
-            transition: border-color 0.2s ease;
-        }
-
-        .soft-cta-box a:hover { border-color: var(--amber); }
-
-        /* ── WHITE LABEL SECTION ── */
-        .wl-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .wl-body {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-
-        .wl-body p { margin-bottom: 0.9rem; }
-        .wl-body p:last-child { margin-bottom: 0; }
-        .wl-body strong { color: var(--text-main); font-weight: 500; }
-
-        .wl-right {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .unit-economics {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.75rem;
-        }
-
-        .ue-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: #aaa9a6;
-            margin-bottom: 1.25rem;
-        }
-
-        .ue-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 0.7rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .ue-row:last-child { border-bottom: none; }
-
-        .ue-key {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .ue-val {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.45rem;
-            color: var(--text-main);
-        }
-
-        .ue-row.margin .ue-val { color: var(--green); }
-
-        .benefits-list {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.75rem;
-        }
-
-        .benefits-list .bl-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: #aaa9a6;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 0.55rem 0;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .benefit-item:last-child { border-bottom: none; }
-
-        .benefit-item::before {
-            content: '+';
-            color: var(--green);
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .pilot-box {
-            background: #f0faf4;
-            border: 1px solid rgba(26,122,60,0.15);
-            border-radius: 8px;
-            padding: 1.5rem 1.75rem;
-        }
-
-        .pilot-box .pilot-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--green);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .pilot-box p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            color: #4a7a5a;
+        .hero-sub {
+            font-size: 17px;
+            font-weight: 500;
+            color: rgba(247,242,234,0.9);
             line-height: 1.65;
         }
 
-        .wl-cta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            align-items: flex-start;
-        }
-
-        .wl-cta-lead {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.2rem;
-            color: var(--text-muted);
+        .hero-sub .accent {
+            color: var(--accent);
             font-style: italic;
         }
 
-        /* ── PROCESS SECTION ── */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .step-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            border-top: 3px solid transparent;
-        }
-
-        .step-card:nth-child(1) { border-top-color: var(--red); }
-        .step-card:nth-child(2) { border-top-color: var(--green); }
-        .step-card:nth-child(3) { border-top-color: var(--amber); }
-        .step-card:nth-child(4) { border-top-color: var(--blue); }
-
-        .step-card .step-num {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .step-card:nth-child(1) .step-num { color: var(--red); }
-        .step-card:nth-child(2) .step-num { color: var(--green); }
-        .step-card:nth-child(3) .step-num { color: var(--amber); }
-        .step-card:nth-child(4) .step-num { color: var(--blue); }
-
-        .step-card h3 {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: var(--text-main);
-            margin-bottom: 0.6rem;
-        }
-
-        .step-card p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            line-height: 1.65;
-            color: var(--text-muted);
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-
-        .deliverables {
+        .hero-ctas {
             display: flex;
+            gap: 14px;
             flex-wrap: wrap;
-            gap: 6px;
         }
 
-        .del-pill {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            background: var(--bg);
-            border: 1px solid var(--border);
-            padding: 5px 11px;
-            border-radius: 3px;
+        /* ── OPPORTUNITY ── */
+        .opportunity {
+            padding: 80px 5%;
+            background: var(--bg-cream);
         }
 
-        .process-coda {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding: 2rem 2.5rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        .process-coda p {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.5rem;
-            color: var(--text-main);
-            line-height: 1.4;
-            max-width: 460px;
-        }
-
-        .process-coda .coda-ctas {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            align-items: flex-start;
-        }
-
-        .process-coda .cta-microcopy {
-            font-size: 0.8rem;
-            color: #aaa9a6;
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            padding: 2rem 6%;
+        .opp-statement {
+            max-width: 880px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .footer-logo {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.4rem;
-            font-style: italic;
-            color: var(--text-muted);
-            display: block;
-            margin-bottom: 0.5rem;
+        .opp-deco {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+        .opp-line { display: block; width: 72px; height: 1.5px; background: var(--terracotta); }
+        .opp-dot { display: block; width: 5px; height: 5px; background: var(--terracotta); border-radius: 50%; }
+
+        .opp-statement p {
+            font-family: 'Flechatest', 'Times New Roman', sans-serif;
+            font-size: clamp(22px, 2.8vw, 34px);
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
         }
 
-        footer p {
+        /* ── PROBLEM ── */
+        .problem {
+            padding: 100px 5%;
+            background: var(--bg);
+        }
+
+        .problem-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .problem-header h2 {
+            font-size: clamp(28px, 3.5vw, 44px);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .problem-header p {
+            font-size: 17px;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--bg-cream);
+            border: 1px solid var(--bg-cream);
+        }
+
+        .pain-card {
+            background: var(--bg);
+            padding: 40px 32px;
+        }
+
+        .pain-num {
+            display: inline-block;
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.12em;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #aaa9a6;
+            color: var(--terracotta);
+            background: rgba(194,73,44,0.08);
+            padding: 4px 10px;
+            border-radius: 2px;
+            margin-bottom: 20px;
         }
 
-        /* ── MOBILE ── */
-        @media (max-width: 900px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-            .cta-stack { align-items: stretch; }
-            .btn-primary, .btn-secondary { text-align: center; display: block; }
-            .problem-grid { grid-template-columns: 1fr; }
-            .wl-layout { grid-template-columns: 1fr; gap: 2rem; }
-            .process-steps { grid-template-columns: 1fr 1fr; }
-            .soft-cta-box { flex-direction: column; align-items: flex-start; gap: 1rem; }
-            .process-coda { flex-direction: column; align-items: flex-start; }
+        .pain-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .pain-card p { font-size: 15px; line-height: 1.7; }
+
+        .problem-bridge {
+            margin-top: 56px;
+            padding: 40px 48px;
+            background: var(--text);
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        .problem-bridge p {
+            font-family: 'Flechatest', 'Times New Roman', sans-serif;
+            font-size: clamp(20px, 2.5vw, 28px);
+            color: rgba(247,242,234,0.88);
+            line-height: 1.5;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .problem-bridge .bridge-accent {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        /* ── SOLUTION / SYSTEM ── */
+        .solution {
+            padding: 100px 5%;
+            background: var(--text);
+        }
+
+        .solution-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .solution-header .lead-in { color: var(--accent); }
+
+        .solution-header h2 {
+            font-size: clamp(30px, 4vw, 52px);
+            color: var(--bg);
+            margin-bottom: 16px;
+        }
+
+        .solution-header p {
+            font-size: 17px;
+            color: rgba(247,242,234,0.6);
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .system-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            border: 1px solid rgba(194,73,44,0.18);
+        }
+
+        .system-card {
+            background: #1E1916;
+            border-right: 1px solid rgba(194,73,44,0.12);
+            padding: 40px 24px 48px;
+            transition: background 0.25s ease;
+        }
+        .system-card:last-child { border-right: none; }
+        .system-card:hover { background: #271f1c; }
+
+        .sys-num {
+            display: block;
+            font-family: 'Flechatest', 'Times New Roman', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.55;
+            line-height: 1;
+            margin-bottom: 18px;
+            transition: opacity 0.25s ease;
+        }
+        .system-card:hover .sys-num { opacity: 0.85; }
+
+        .system-card h3 {
+            font-size: 16px;
+            color: var(--bg);
+            margin-bottom: 12px;
+        }
+
+        .system-card p {
+            font-size: 13px;
+            color: rgba(247,242,234,0.5);
+            line-height: 1.75;
+        }
+
+        .solution-defines {
+            margin-top: 72px;
+            padding-top: 0;
+        }
+
+        .solution-defines h2 {
+            color: var(--bg);
+            font-size: clamp(26px, 3.5vw, 42px);
+            margin-bottom: 56px;
+            text-align: center;
+        }
+
+        .solution-defines .usp-item h3 { color: var(--bg); }
+        .solution-defines .usp-item p { color: rgba(247,242,234,0.55); }
+
+        /* ── PROCESS / PRODUCTS ── */
+        .process {
+            padding: 100px 5%;
+            background: var(--bg-cream);
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .process-header h2 {
+            font-size: clamp(28px, 3.5vw, 44px);
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .process-header p {
+            font-size: 17px;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--bg);
+            border: 1px solid rgba(26,22,20,0.08);
+            padding: 40px 32px 44px;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--terracotta);
+        }
+
+        .product-num {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 22px;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .product-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .product-tag {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--moss);
+            background: rgba(61,82,64,0.08);
+            padding: 5px 12px;
+            border-radius: 2px;
+        }
+
+        /* ── USPs ── */
+        .usps {
+            padding: 100px 5%;
+            background: var(--bg);
+        }
+
+        .usps-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .usps-header h2 {
+            font-size: clamp(28px, 3.5vw, 44px);
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .usps-header p {
+            font-size: 17px;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .usps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 80px;
+        }
+
+        .usp-item {
+            border-left: 2px solid var(--terracotta);
+            padding-left: 28px;
+        }
+
+        .usp-item h3 {
+            font-size: 20px;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .usp-item p { font-size: 15px; line-height: 1.7; }
+
+        /* ── PHOTO BAND ── */
+        .photo-band {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+        }
+        .photo-band img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 33%;
+            display: block;
+        }
+
+        /* ── FINAL CTA ── */
+        .final-cta {
+            padding: 120px 5%;
+            background: var(--bg-cream);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(28px, 4vw, 48px);
+            color: var(--text);
+            max-width: 680px;
+            margin: 0 auto 16px;
+        }
+
+        .final-cta-body {
+            max-width: 520px;
+            margin: 0 auto 48px;
+        }
+
+        .final-cta-body p {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+        .final-cta-body p:last-child { margin-bottom: 0; }
+
+        .contact-form {
+            width: 100%;
+            max-width: 560px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            background: #fff;
+            border: 1px solid rgba(26,22,20,0.15);
+            border-radius: 3px;
+            padding: 13px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder { color: var(--text-muted); }
+        .contact-form input:focus,
+        .contact-form textarea:focus { border-color: var(--terracotta); }
+        .contact-form textarea { resize: vertical; min-height: 110px; }
+
+        .form-ctas {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* ── FOOTER ── */
+        .site-footer {
+            background: var(--text);
+            padding: 48px 5%;
+            text-align: center;
+        }
+
+        .site-footer img { height: 40px; width: auto; margin-bottom: 16px; opacity: 0.8; }
+
+        .site-footer p {
+            font-size: 13px;
+            color: rgba(247,242,234,0.35);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ── REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal.visible { opacity: 1; transform: none; }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1100px) {
+            .system-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 860px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+            .pain-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
+            .usps-grid { grid-template-columns: 1fr; gap: 32px; }
+            .system-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-row { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 540px) {
-            section { padding: 60px 5%; }
-            .hero { padding: 60px 5%; }
-            .process-steps { grid-template-columns: 1fr; }
+            .system-grid { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; }
+            .site-header { padding: 16px 5%; }
+            .logo img { height: 44px; }
         }
     </style>
 </head>
@@ -606,9 +710,16 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ99WQLT"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- ── HERO ── -->
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <div class="logo">
+            <img src="../images/logocopyofficer2.png" alt="CopyOfficer">
+        </div>
+        <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
+    </header>
+
+    <!-- HERO -->
     <section class="hero">
         <video autoplay muted loop playsinline class="hero-video">
             <source src="../hispanics/videohero.mp4" type="video/mp4">
@@ -616,178 +727,210 @@
         <div class="hero-overlay"></div>
         <div class="hero-inner">
             <div class="hero-left">
-                <span class="hero-label">For Agencies</span>
-                <h1>Your clients have Hispanic audiences.<br>You're leaving revenue on the table.</h1>
+                <span class="hero-label">Hispanic Acquisition Architecture</span>
+                <h1>We Capture the Hispanic Market Revenue for You</h1>
             </div>
             <div class="hero-right">
-                <p class="hero-sub">We build the bilingual customer journey, full funnel, in English and Spanish, written natively, not translated. White-label for agencies ready to capture what their clients are already missing.</p>
-                <div class="cta-stack">
-                    <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" class="btn-primary">Book a 15-min call</a>
-                    <a href="#" class="btn-secondary">Run the Bilingual Revenue Audit</a>
-                    <p class="cta-microcopy">5 questions to diagnose if your clients are losing Hispanic market revenue.</p>
+                <span class="hero-sep"></span>
+                <p class="hero-sub">We take responsibility for your marketing performance end to end, so you have an <span class="accent">acquisition system that actually brings in Hispanic clients.</span></p>
+                <div class="hero-ctas">
+                    <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book a 30-min strategic call</a>
+                    <a href="#contact" class="btn-outline-light">Tell Us More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── SECTION 1: THE PROBLEM ── -->
-    <section>
-        <div class="section-inner">
-            <span class="section-label">The Problem</span>
-            <h2 class="section-h2">The problem isn't content. It's narrative misalignment.</h2>
-            <p class="section-sub">Most agencies think they're serving Hispanic audiences. They're not. There are only two scenarios and both break the customer journey.</p>
-
-            <div class="problem-grid">
-                <div class="scenario-card">
-                    <div class="scenario-num">Scenario 01</div>
-                    <h3>Translation instead of strategy</h3>
-                    <p>Content is written in English, then translated. Same words, different meaning. The narrative collapses. Conversions drop.</p>
+    <!-- OPPORTUNITY -->
+    <section class="opportunity">
+        <div class="inner">
+            <div class="opp-statement reveal">
+                <div class="opp-deco">
+                    <span class="opp-line"></span>
+                    <span class="opp-dot"></span>
+                    <span class="opp-line"></span>
                 </div>
-                <div class="scenario-card">
-                    <div class="scenario-num">Scenario 02</div>
-                    <h3>No Spanish layer at all</h3>
-                    <p>Campaigns run only in English. A large part of the market never enters the funnel. Revenue goes to whoever does.</p>
-                </div>
-            </div>
-
-            <div class="problem-bridge">
-                <p>This is not a language problem. It's a coherence problem across the funnel.</p>
-                <p>If the story changes between languages, the journey breaks. If one language is missing, the journey never starts.</p>
-            </div>
-
-            <div class="soft-cta-box">
-                <p>Not sure if this is happening to your clients? Run a quick diagnostic.</p>
-                <a href="#">The Bilingual Customer Journey Audit &rarr;</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── SECTION 2: WHITE LABEL ── -->
-    <section style="background: var(--bg-alt);">
-        <div class="section-inner">
-            <span class="section-label amber">White-Label Partnership</span>
-            <h2 class="section-h2">Add a new revenue stream without adding headcount.</h2>
-
-            <div class="wl-layout">
-                <div>
-                    <div class="wl-body">
-                        <p>We operate as a white-label partner inside your agency.</p>
-                        <p><strong>You sell the service. You manage the relationship. We deliver the bilingual customer journey end to end.</strong></p>
-                        <p>No hiring. No training. No operational overhead. This is not a one-off project. It's a monthly retainer tied to your client's growth.</p>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
-                        <div class="pilot-box">
-                            <span class="pilot-label">Low-risk entry</span>
-                            <p>Start with one client. 60-day pilot at $800-$1,000/mo. Prove performance. Validate demand. Then scale.</p>
-                        </div>
-                    </div>
-
-                    <div class="wl-cta" style="margin-top: 1.75rem;">
-                        <p class="wl-cta-lead">Have a client in mind?</p>
-                        <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" class="btn-primary">Book a 15-min call</a>
-                    </div>
-                </div>
-
-                <div class="wl-right">
-                    <div class="unit-economics">
-                        <div class="ue-title">The unit economics</div>
-                        <div class="ue-row">
-                            <span class="ue-key">Your price</span>
-                            <span class="ue-val">$3,000 - $5,000 / mo</span>
-                        </div>
-                        <div class="ue-row">
-                            <span class="ue-key">Our fee</span>
-                            <span class="ue-val">$1,500 - $2,500 / mo</span>
-                        </div>
-                        <div class="ue-row margin">
-                            <span class="ue-key">Your margin</span>
-                            <span class="ue-val">~50%</span>
-                        </div>
-                    </div>
-
-                    <div class="benefits-list">
-                        <div class="bl-title">Why agencies choose this model</div>
-                        <div class="benefit-item">Expand your offer without diluting focus</div>
-                        <div class="benefit-item">Increase LTV per client</div>
-                        <div class="benefit-item">Differentiate in competitive pitches</div>
-                        <div class="benefit-item">Capture revenue competitors are already taking</div>
-                    </div>
+                <p>Companies targeting the Hispanic market are losing 20–40% of their vertical revenue because they treat it as a content problem, not a system design problem.</p>
+                <div class="opp-deco" style="margin-top: 32px; margin-bottom: 0;">
+                    <span class="opp-line"></span>
+                    <span class="opp-dot"></span>
+                    <span class="opp-line"></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── SECTION 3: PROCESS ── -->
-    <section>
-        <div class="section-inner">
-            <span class="section-label">The Process</span>
-            <h2 class="section-h2">Most agencies skip the part that actually drives performance.</h2>
-            <p class="section-sub">They start with content. We start with how the customer thinks in both languages. Bilingual content doesn't fail at execution. It fails at the level of understanding.</p>
-
-            <div class="process-steps">
-                <div class="step-card">
-                    <div class="step-num">Step 01</div>
-                    <h3>Cognitive Mapping</h3>
-                    <p>We map what the customer believes, expects, and what moves them to act, in both languages.</p>
-                    <div class="deliverables">
-                        <span class="del-pill">Market tension analysis</span>
-                        <span class="del-pill">ICP cognitive model</span>
-                        <span class="del-pill">Funnel friction audit</span>
-                        <span class="del-pill">Bilingual insights EN/ES</span>
-                    </div>
+    <!-- PROBLEM -->
+    <section class="problem">
+        <div class="inner">
+            <div class="problem-header">
+                <span class="rule"></span>
+                <h2 class="reveal">Three situations. Same result: zero Hispanic revenue.</h2>
+                <p class="reveal reveal-delay-1">Most brands fall into one of these patterns. None of them produce a working acquisition system.</p>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card reveal">
+                    <span class="pain-num">Pain A</span>
+                    <h3>Untapped revenue</h3>
+                    <p>You have a significant Hispanic-relevant audience and you're not capturing it systematically. You know the opportunity is there, but there's no infrastructure to actually work it.</p>
                 </div>
-                <div class="step-card">
-                    <div class="step-num">Step 02</div>
-                    <h3>Acquisition Content</h3>
-                    <p>Content that matches how each audience interprets value. Written natively, not adapted.</p>
-                    <div class="deliverables">
-                        <span class="del-pill">Ad creatives Meta/Google</span>
-                        <span class="del-pill">Hook library</span>
-                        <span class="del-pill">Bilingual ad sets EN/ES</span>
-                        <span class="del-pill">A/B testing structure</span>
-                    </div>
+                <div class="pain-card reveal reveal-delay-1">
+                    <span class="pain-num">Pain B</span>
+                    <h3>Failed attempts</h3>
+                    <p>You've tried going Hispanic: translated your website, hired a bilingual freelancer, ran a campaign. The results were poor because you treated it as a content problem, not an architecture problem.</p>
                 </div>
-                <div class="step-card">
-                    <div class="step-num">Step 03</div>
-                    <h3>Conversion Content</h3>
-                    <p>The landing page continues the same narrative. No friction. No broken journey.</p>
-                    <div class="deliverables">
-                        <span class="del-pill">Landing pages EN/ES</span>
-                        <span class="del-pill">Sales structure</span>
-                        <span class="del-pill">Objection handling</span>
-                        <span class="del-pill">CRO roadmap</span>
-                    </div>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">Step 04</div>
-                    <h3>Retention Content</h3>
-                    <p>Emails and follow-ups that reinforce the same story and extend the journey.</p>
-                    <div class="deliverables">
-                        <span class="del-pill">Email flows EN/ES</span>
-                        <span class="del-pill">Follow-up sequences</span>
-                        <span class="del-pill">Re-engagement campaigns</span>
-                        <span class="del-pill">Retention calendar</span>
-                    </div>
+                <div class="pain-card reveal reveal-delay-2">
+                    <span class="pain-num">Pain C</span>
+                    <h3>No internal capacity</h3>
+                    <p>You have no Hispanic marketing expertise in-house. The agencies you've tried produce generic translations without understanding how Hispanic buyers actually evaluate, trust, and decide.</p>
                 </div>
             </div>
+            <div class="problem-bridge reveal">
+                <p>The root cause is always the same: <span class="bridge-accent">the absence of a system.</span> Hispanic acquisition is treated as tactics (ads, posts, translations) instead of architecture: positioning, journey design, tracking, nurturing, attribution.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="process-coda">
-                <p>Most agencies start at step 3. That's why their bilingual content underperforms.</p>
-                <div class="coda-ctas">
-                    <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" class="btn-primary">Book a 15-min call</a>
-                    <a href="#" class="btn-secondary">Run the Bilingual Revenue Audit</a>
-                    <p class="cta-microcopy">5 questions to diagnose if your clients are losing Hispanic market revenue.</p>
+    <!-- SOLUTION -->
+    <section class="solution">
+        <div class="inner">
+            <div class="solution-header">
+                <span class="lead-in">The System</span>
+                <h2 class="reveal">Hispanic Acquisition Architecture</h2>
+                <p class="reveal reveal-delay-1">Five components working together as one engine, designed for how Hispanic buyers actually move through a decision.</p>
+            </div>
+            <div class="system-grid">
+                <div class="system-card reveal">
+                    <span class="sys-num">01</span>
+                    <h3>Source</h3>
+                    <p>We track where Hispanic prospects originate across paid, organic, referral and direct channels, with clear attribution from first interaction to closed deal.</p>
+                </div>
+                <div class="system-card reveal reveal-delay-1">
+                    <span class="sys-num">02</span>
+                    <h3>Behavior</h3>
+                    <p>We capture how users interact with your site in both languages, identifying distinct behavioral patterns and optimizing each path with precision.</p>
+                </div>
+                <div class="system-card reveal reveal-delay-2">
+                    <span class="sys-num">03</span>
+                    <h3>Identity</h3>
+                    <p>We connect anonymous traffic to identified users inside your CRM, structured by intent, stage and vertical, so no lead disappears.</p>
+                </div>
+                <div class="system-card reveal reveal-delay-3">
+                    <span class="sys-num">04</span>
+                    <h3>Segmentation</h3>
+                    <p>Audiences are defined specifically for the Hispanic segment across ads, email and CRM, enabling precise communication at every stage of the journey.</p>
+                </div>
+                <div class="system-card reveal reveal-delay-4">
+                    <span class="sys-num">05</span>
+                    <h3>Activation</h3>
+                    <p>Campaigns, content and conversion paths are built around how Hispanic buyers evaluate and decide, with native bilingual execution and vertical-specific experiences.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 14px; justify-content: center; margin-top: 48px; flex-wrap: wrap;">
+                <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book a 30-min strategic call</a>
+                <a href="#contact" class="btn-outline-light">Tell Us More</a>
+            </div>
+            <div class="solution-defines">
+                <h2 class="reveal">What defines this approach</h2>
+                <div class="usps-grid">
+                    <div class="usp-item reveal">
+                        <h3>Architecture, not tactics</h3>
+                        <p>We build a system, not deliverables. You leave with infrastructure you own and a measurable Hispanic acquisition machine. Not a campaign that stops when the budget runs out.</p>
+                    </div>
+                    <div class="usp-item reveal reveal-delay-1">
+                        <h3>Vertical specialization</h3>
+                        <p>We work in five verticals with depth: Real Estate, Healthcare, Financial Services, Retail and SaaS. We bring proven playbooks, not generic frameworks adapted on the fly.</p>
+                    </div>
+                    <div class="usp-item reveal reveal-delay-2">
+                        <h3>Native bilingual operation</h3>
+                        <p>All work is built in both languages as primary documents, never translated. The entire system operates with native cultural fluency, not language adaptation.</p>
+                    </div>
+                    <div class="usp-item reveal reveal-delay-3">
+                        <h3>Full-funnel ownership</h3>
+                        <p>The Hispanic segment performance is our responsibility end to end, from awareness through close. We don't hand off deliverables and disappear. We own the outcome.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── FOOTER ── -->
-    <footer>
-        <span class="footer-logo">CopyOfficer</span>
-        <p>Human Content That Converts &nbsp;&middot;&nbsp; All Rights Reserved</p>
+    <!-- PROCESS / PRODUCTS -->
+    <section class="process">
+        <div class="inner">
+            <div class="process-header">
+                <span class="rule"></span>
+                <h2 class="reveal">What happens after you sign</h2>
+                <p class="reveal reveal-delay-1">Every engagement follows a structured progression. Each step builds on the previous one.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card reveal">
+                    <span class="product-num">01 · Audit</span>
+                    <h3>Diagnosis first</h3>
+                    <p>A two-week deep diagnosis of your current acquisition system through the Hispanic lens. You get a 30–50 page strategic document with gap analysis, prioritized recommendations, and projected impact.</p>
+                    <span class="product-tag">Entry point · Two weeks</span>
+                </div>
+                <div class="product-card reveal reveal-delay-1">
+                    <span class="product-num">02 · Build</span>
+                    <h3>Full architecture</h3>
+                    <p>Six to ten weeks of implementation. We configure tracking, attribution and CRM segmentation. We build vertical landing pages, bilingual nurturing sequences, lead scoring, and Hispanic-specific dashboards.</p>
+                    <span class="product-tag">Core transformation · 6–10 weeks</span>
+                </div>
+                <div class="product-card reveal reveal-delay-2">
+                    <span class="product-num">03 · Operations</span>
+                    <h3>Ongoing system</h3>
+                    <p>Continuous management and optimization of the full acquisition system. Content production, campaign iteration, monthly reporting, and quarterly architecture reviews, all under one retainer.</p>
+                    <span class="product-tag">Recurring engagement · Monthly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO BAND -->
+    <div class="photo-band">
+        <img src="../hispanics/h1.jpeg" alt="Hispanic market">
+    </div>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" id="contact">
+        <div class="inner">
+            <span class="rule"></span>
+            <h2 class="reveal">Share your situation with us</h2>
+            <div class="final-cta-body reveal reveal-delay-1">
+                <p>We'll review your website and input, and get back to you with a plan within 48 hours.</p>
+            </div>
+            <form class="contact-form reveal reveal-delay-2" name="lp-contact" method="POST" data-netlify="true">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <input type="text" name="website" placeholder="Website">
+                <textarea name="message" placeholder="Message"></textarea>
+                <div class="form-ctas">
+                    <button type="submit" class="btn-primary">Tell Us More</button>
+                    <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener" class="btn-outline-dark">Book a call instead</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <img src="../images/logocopyofficer2.png" alt="CopyOfficer">
+        <p>Hispanic Acquisition Architecture &nbsp;·&nbsp; All Rights Reserved</p>
     </footer>
 
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Sticky header
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+    </script>
 </body>
 </html>
