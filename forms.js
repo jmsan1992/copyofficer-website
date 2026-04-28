@@ -97,10 +97,11 @@
 
       fetch(WEBHOOK, {
         method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain' },
         body:    JSON.stringify(payload),
       })
         .then(function (res) {
+          /* Make returns 200 with "Accepted" on success */
           if (!res.ok) throw new Error('HTTP ' + res.status);
           successEl.style.display = 'block';
           form.reset();
