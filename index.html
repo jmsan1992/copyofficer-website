@@ -271,6 +271,90 @@
             line-height: 1.65;
         }
 
+        .hero-body-split {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-body-split .split-card {
+            flex: 1;
+            padding: 28px 28px 28px 24px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(247,242,234,0.14);
+            border-radius: 10px;
+            text-align: left;
+            backdrop-filter: blur(6px);
+            position: relative;
+        }
+
+        .hero-body-split .split-card::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 3px;
+            height: calc(100% - 40px);
+            border-radius: 0 2px 2px 0;
+        }
+
+        .hero-body-split .split-card.card-problem::before {
+            background: rgba(247,242,234,0.35);
+        }
+
+        .hero-body-split .split-card.card-solution::before {
+            background: var(--terracotta);
+        }
+
+        .hero-body-split .split-card .card-label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .hero-body-split .split-card.card-problem .card-label {
+            color: rgba(247,242,234,0.45);
+        }
+
+        .hero-body-split .split-card.card-solution .card-label {
+            color: #E8A87C;
+        }
+
+        .hero-body-split .split-card p {
+            font-size: 16px;
+            font-weight: 500;
+            color: rgba(247,242,234,0.9);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .hero-body-split .split-arrow {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 18px;
+            color: var(--terracotta);
+            font-size: 22px;
+        }
+
+        @media (max-width: 640px) {
+            .hero-body-split {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .hero-body-split .split-arrow {
+                padding: 4px 0;
+                transform: rotate(90deg);
+            }
+        }
+
         .hero-separator {
             display: block;
             width: 44px;
@@ -409,45 +493,81 @@
 
         .components-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
             margin-top: 8px;
-            border: 1px solid rgba(194,73,44,0.18);
+            background: rgba(194,73,44,0.15);
+            border: 1px solid rgba(194,73,44,0.15);
+            border-radius: 12px;
+            overflow: hidden;
         }
 
         .component {
-            background: #1E1916;
-            border-right: 1px solid rgba(194,73,44,0.12);
-            padding: 44px 28px 52px;
+            background: #1A1512;
+            padding: 48px 36px 44px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            transition: background 0.25s ease;
+            position: relative;
+        }
+        .component::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: transparent;
             transition: background 0.25s ease;
         }
-        .component:last-child { border-right: none; }
-        .component:hover { background: #271f1c; }
+        .component:hover { background: #211a16; }
+        .component:hover::before { background: var(--terracotta); }
 
         .comp-num {
             display: block;
-            font-family: 'Flechatest', 'Times New Roman', sans-serif;
-            font-size: 56px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
             font-weight: 700;
-            color: #E8A87C;
-            opacity: 0.55;
+            letter-spacing: 0.16em;
+            color: var(--terracotta);
+            opacity: 0.8;
             line-height: 1;
             margin-bottom: 20px;
-            transition: opacity 0.25s ease;
         }
-        .component:hover .comp-num { opacity: 0.85; }
 
         .component h3 {
-            font-size: 17px;
+            font-size: 18px;
             color: var(--bg);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             letter-spacing: -0.01em;
+            line-height: 1.25;
         }
 
         .component p {
             font-size: 14px;
-            color: rgba(247,242,234,0.52);
-            line-height: 1.75;
+            color: rgba(247,242,234,0.5);
+            line-height: 1.8;
+            flex: 1;
+        }
+
+        .comp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 24px;
+        }
+
+        .comp-tags span {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(200,148,26,0.85);
+            background: rgba(200,148,26,0.08);
+            border: 1px solid rgba(200,148,26,0.18);
+            border-radius: 4px;
+            padding: 4px 8px;
         }
 
         /* ──────────────────────────────────────────
@@ -569,6 +689,27 @@
 
         .product-card p {
             font-size: 15px;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 20px;
+        }
+
+        .product-tags span {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            background: rgba(26,22,20,0.06);
+            border: 1px solid rgba(26,22,20,0.12);
+            border-radius: 4px;
+            padding: 4px 8px;
         }
 
         .how-footnote {
@@ -919,7 +1060,7 @@
         }
 
         @media (max-width: 1100px) {
-            .components-grid { grid-template-columns: repeat(3, 1fr); }
+            .components-grid { grid-template-columns: repeat(2, 1fr); }
             .verticals-grid  { grid-template-columns: repeat(3, 1fr); }
         }
 
@@ -975,9 +1116,19 @@
         <section class="hero" aria-label="Hero">
             <img src="hispanics/h6.jpeg" alt="Hispanic market" class="hero-video">
             <div class="hero-content">
-                <h1>We Capture the Hispanic Market Revenue for You</h1>
+                <h1>We Turn Hispanic Demand Into Revenue</h1>
                 <span class="hero-separator"></span>
-                <p class="hero-body">We take responsibility for your marketing performance end to end, so you have an <span class="accent">acquisition system that actually brings in Hispanic clients.</span></p>
+                <div class="hero-body-split">
+                    <div class="split-card card-problem">
+                        <span class="card-label">The Gap</span>
+                        <p>Your Hispanic audience is already looking for solutions like yours, but most brands fail to convert those buyers because their messaging and customer journeys were never built for how Hispanics actually buy in Spanish.</p>
+                    </div>
+                    <div class="split-arrow">&#8594;</div>
+                    <div class="split-card card-solution">
+                        <span class="card-label">What We Do</span>
+                        <p>We study how your Hispanic segment buys, build the journey around that behavior, and install a scalable acquisition system inside your business.</p>
+                    </div>
+                </div>
                 <div class="hero-ctas">
                     <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book a 30-min strategic call</a>
                     <a href="#report" class="btn-outline">Tell Us More</a>
@@ -1013,51 +1164,45 @@
         <!-- SECTION 5 — THE CATEGORY -->
         <section class="category">
             <div class="inner">
-                <span class="lead-in">Here's what we'll build for you</span>
-                <h2 class="reveal">Hispanic Acquisition Architecture</h2>
-                <p class="category-subhead reveal reveal-delay-1">A complete system composed of five components working together as one engine, designed for the Hispanic journey.</p>
+                <span class="lead-in">Our Solution</span>
+                <h2 class="reveal">Hispanic Acquisition System</h2>
+                <p class="category-subhead reveal reveal-delay-1">A six-part system designed to understand, acquire, and grow Hispanic customers systematically.</p>
                 <div class="components-grid">
                     <div class="component reveal">
-                        <span class="comp-num">01</span>
-                        <h3>Source</h3>
-                        <p>We track where Hispanic prospects originate across paid, organic, referral and direct channels, maintaining clear attribution from first interaction to closed deal.</p>
+                        <span class="comp-num">01 — UNDERSTAND</span>
+                        <h3>Understand the Hispanic Buyer</h3>
+                        <p>We research the Hispanic segment deeply to understand its motivations, language, objections, and path to purchase in Spanish.</p>
+                        <div class="comp-tags"><span>Research</span><span>JTBD</span><span>Psychology</span><span>Segmentation</span></div>
                     </div>
                     <div class="component reveal reveal-delay-1">
-                        <span class="comp-num">02</span>
-                        <h3>Behavior</h3>
-                        <p>We capture how users interact with your site in both languages, allowing you to see distinct behavioral patterns and optimize each path with clarity.</p>
+                        <span class="comp-num">02 — DESIGN</span>
+                        <h3>Design the Customer Journey</h3>
+                        <p>We design the customer journey around how Hispanic buyers evaluate, trust, and move toward conversion.</p>
+                        <div class="comp-tags"><span>Strategy</span><span>Funnel Design</span><span>UX</span><span>Positioning</span></div>
                     </div>
                     <div class="component reveal reveal-delay-2">
-                        <span class="comp-num">03</span>
-                        <h3>Identity</h3>
-                        <p>We connect anonymous traffic to identified users inside your CRM, structured by intent, stage and vertical.</p>
+                        <span class="comp-num">03 — BUILD</span>
+                        <h3>Build Hispanic Assets</h3>
+                        <p>We create the messaging, pages, content, and conversion assets that guide buyers through each stage.</p>
+                        <div class="comp-tags"><span>Landing Pages</span><span>Content</span><span>CRM</span><span>Nurturing</span></div>
                     </div>
                     <div class="component reveal reveal-delay-3">
-                        <span class="comp-num">04</span>
-                        <h3>Segmentation</h3>
-                        <p>Audiences are defined specifically for the Hispanic segment across ads, email and CRM systems, enabling precise communication at each stage.</p>
+                        <span class="comp-num">04 — MEASURE</span>
+                        <h3>Instrument Measurement</h3>
+                        <p>We implement the tracking and analytics infrastructure required to measure behavior and optimize performance.</p>
+                        <div class="comp-tags"><span>GA4</span><span>GTM</span><span>Attribution</span><span>CRM Tracking</span></div>
                     </div>
                     <div class="component reveal reveal-delay-4">
-                        <span class="comp-num">05</span>
-                        <h3>Activation</h3>
-                        <p>Campaigns, content and conversion paths are designed around how Hispanic buyers evaluate and decide, with native bilingual execution and vertical-specific experiences.</p>
+                        <span class="comp-num">05 — ACQUIRE</span>
+                        <h3>Acquire Qualified Traffic</h3>
+                        <p>We distribute campaigns across the channels where your Hispanic audience already spends attention.</p>
+                        <div class="comp-tags"><span>Paid Media</span><span>Search</span><span>Social</span><span>Acquisition</span></div>
                     </div>
-                </div>
-                <div class="category-defines">
-                    <h2 class="reveal">What defines this approach</h2>
-                    <div class="pillars-grid">
-                        <div class="pillar reveal">
-                            <h3>Architecture over tactics</h3>
-                            <p>The output is infrastructure that continues to perform.</p>
-                        </div>
-                        <div class="pillar reveal reveal-delay-1">
-                            <h3>Native bilingual operation</h3>
-                            <p>Both languages are treated as primary from the start.</p>
-                        </div>
-                        <div class="pillar reveal reveal-delay-2">
-                            <h3>Full-funnel ownership</h3>
-                            <p>Performance is measured across the full acquisition process.</p>
-                        </div>
+                    <div class="component reveal reveal-delay-4">
+                        <span class="comp-num">06 — OPTIMIZE</span>
+                        <h3>Analyze, Optimize &amp; Iterate</h3>
+                        <p>We continuously analyze data, test improvements, and refine the system to increase efficiency and conversion over time.</p>
+                        <div class="comp-tags"><span>Analytics</span><span>CRO</span><span>Testing</span><span>Optimization</span></div>
                     </div>
                 </div>
                 <div class="section-ctas reveal">
@@ -1072,25 +1217,28 @@
             <div class="inner">
                 <span class="rule"></span>
                 <h2 class="reveal">What happens after onboarding</h2>
-                <p class="section-subhead reveal reveal-delay-1">Each step builds on the previous one.</p>
+                <p class="section-subhead reveal reveal-delay-1">We implement the system in three focused stages.</p>
                 <div class="products-grid">
                     <div class="product-card reveal">
-                        <span class="product-num">01</span>
-                        <h3>Audit</h3>
-                        <p>A full diagnosis of your current Hispanic acquisition system, with a detailed document outlining gaps, priorities and expected impact.</p>
+                        <span class="product-num">01 — Strategy</span>
+                        <h3>Strategy</h3>
+                        <p>We research your Hispanic segment, define the customer journey, and identify the acquisition architecture required to convert demand effectively.</p>
+                        <div class="product-tags"><span>Research</span><span>Positioning</span><span>Journey Design</span></div>
                     </div>
                     <div class="product-card reveal reveal-delay-1">
-                        <span class="product-num">02</span>
+                        <span class="product-num">02 — Build</span>
                         <h3>Build</h3>
-                        <p>Implementation of the full architecture, including tracking, landing pages, nurturing sequences, lead scoring and dashboards.</p>
+                        <p>We build the core acquisition infrastructure: messaging, landing pages, CRM flows, tracking, analytics, and conversion systems.</p>
+                        <div class="product-tags"><span>Assets</span><span>Tracking</span><span>CRM</span><span>Infrastructure</span></div>
                     </div>
                     <div class="product-card reveal reveal-delay-2">
-                        <span class="product-num">03</span>
-                        <h3>Operations</h3>
-                        <p>Ongoing management and optimization with continuous iteration, content and reporting.</p>
+                        <span class="product-num">03 — Growth</span>
+                        <h3>Growth</h3>
+                        <p>We launch campaigns, analyze behavior, optimize performance, and continuously improve the system through iteration and data.</p>
+                        <div class="product-tags"><span>Acquisition</span><span>Optimization</span><span>Reporting</span></div>
                     </div>
                 </div>
-                <p class="how-footnote reveal">Most clients follow a progression from Audit to Build to Operations as the system takes shape and scales.</p>
+                <p class="how-footnote reveal">Each stage builds on the previous one, creating a scalable acquisition system your business owns.</p>
                 <div class="section-ctas reveal">
                     <a href="https://calendly.com/jmsan1992/quick-discovery-call" target="_blank" rel="noopener" class="btn-primary">Book a 30-min strategic call</a>
                     <a href="#report" class="btn-outline-dark">Tell Us More</a>
