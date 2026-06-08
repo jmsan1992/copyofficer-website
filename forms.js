@@ -1,17 +1,16 @@
 (function () {
-  var WEBHOOK = 'https://hook.eu1.make.com/15293rxgo1jmbcwlcnjc3t7xesfifvdo';
+  var ENDPOINT = '/.netlify/functions/submit-lead';
 
   /* ── UTM helpers ── */
   function getUtmsFromUrl() {
     var p = new URLSearchParams(window.location.search);
-    var utms = {
+    return {
       utm_source:   p.get('utm_source')   || '',
       utm_medium:   p.get('utm_medium')   || '',
       utm_campaign: p.get('utm_campaign') || '',
       utm_content:  p.get('utm_content')  || '',
       utm_term:     p.get('utm_term')     || '',
     };
-    return utms;
   }
 
   function getUtms() {
@@ -50,12 +49,11 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      var btn        = form.querySelector('[type="submit"]');
-      var origText   = btn ? btn.textContent : '';
-      var successEl  = form.querySelector('.form-success');
-      var errorEl    = form.querySelector('.form-error');
+      var btn       = form.querySelector('[type="submit"]');
+      var origText  = btn ? btn.textContent : '';
+      var successEl = form.querySelector('.form-success');
+      var errorEl   = form.querySelector('.form-error');
 
-      /* Create feedback elements if they don't exist */
       if (!successEl) {
         successEl = document.createElement('p');
         successEl.className = 'form-success';
@@ -87,7 +85,6 @@
         message:      fieldVal(form, 'message'),
         source:       utms.utm_source || 'direct',
         entry_page:   entryPage,
-        entry_point:  'book_call',
         utm_source:   utms.utm_source,
         utm_medium:   utms.utm_medium,
         utm_campaign: utms.utm_campaign,
@@ -95,13 +92,12 @@
         utm_term:     utms.utm_term,
       };
 
-      fetch(WEBHOOK, {
+      fetch(ENDPOINT, {
         method:  'POST',
-        headers: { 'Content-Type': 'text/plain' },
+        headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(payload),
       })
         .then(function (res) {
-          /* Make returns 200 with "Accepted" on success */
           if (!res.ok) throw new Error('HTTP ' + res.status);
           successEl.style.display = 'block';
           form.reset();
@@ -118,7 +114,6 @@
 
   /* ── Init ── */
   document.addEventListener('DOMContentLoaded', function () {
-    /* Detect which page we're on by path */
     var path      = window.location.pathname;
     var entryPage = path.indexOf('lp-hispanic') !== -1 ? 'lp_hispanic' : 'homepage';
 
