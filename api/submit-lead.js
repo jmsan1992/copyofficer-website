@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       'Message':      body.message      || '',
       'Source':       body.source       || 'direct',
       'Entry Page':   body.entry_page   || '',
-      'Entry Point':  'book_call',
+      'Entry Point':  'contact_form',
       'UTM Source':   body.utm_source   || '',
       'UTM Medium':   body.utm_medium   || '',
       'UTM Campaign': body.utm_campaign || '',
