@@ -1,5 +1,5 @@
 (function () {
-  var ENDPOINT = '/.netlify/functions/submit-lead';
+  var ENDPOINT = '/api/submit-lead';
 
   /* ── UTM helpers ── */
   function getUtmsFromUrl() {
