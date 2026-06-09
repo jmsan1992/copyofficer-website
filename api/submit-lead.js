@@ -55,17 +55,6 @@ export default async function handler(req, res) {
 
   // 2. Loops: confirm to lead + notify Jose
   if (LOOPS_API_KEY && body.email) {
-    const notificationBody = [
-      'New lead received.',
-      '',
-      `Name:    ${body.name || '—'}`,
-      `Email:   ${body.email || '—'}`,
-      `Company: ${body.company || '—'}`,
-      `Website: ${body.website || '—'}`,
-      `Message: ${body.message || '—'}`,
-      `Source:  ${body.source || 'direct'}`,
-      `Page:    ${body.entry_page || '—'}`,
-    ].join('\n');
 
     await Promise.allSettled([
       // Add/update contact
@@ -98,7 +87,15 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           transactionalId: LOOPS_NOTIFICATION_ID,
           email:           NOTIFICATION_EMAIL,
-          dataVariables:   { body: notificationBody },
+          dataVariables: {
+            leadName:    body.name     || '—',
+            leadEmail:   body.email    || '—',
+            leadCompany: body.company  || '—',
+            leadWebsite: body.website  || '—',
+            leadMessage: body.message  || '—',
+            leadSource:  body.source   || 'direct',
+            leadPage:    body.entry_page || '—',
+          },
         }),
       }),
     ]);
