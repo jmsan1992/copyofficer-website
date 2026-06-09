@@ -89,20 +89,16 @@ export default async function handler(req, res) {
           method:  'POST',
           headers: { 'Authorization': `Bearer ${LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
           body:    JSON.stringify(payload),
-        }).then(async (r) => {
-          // contacts/create returns 409 if the contact already exists — that's expected, not an error
-          if (!r.ok && !(label === 'contact' && r.status === 409)) {
-            console.error(`[submit-lead] Loops ${label} failed (${r.status}):`, await r.text());
-          }
-        })
+        }).then(async (r) => ({ label, status: r.status, body: await r.text() }))
       )
     );
 
-    results.forEach((res, i) => {
-      if (res.status === 'rejected') {
-        console.error(`[submit-lead] Loops ${calls[i][0]} threw:`, res.reason);
-      }
-    });
+    // DEBUG TEMPORAL: devolver el resultado de cada llamada a Loops para diagnosticar el notify
+    const loopsDebug = results.map((res, i) =>
+      res.status === 'fulfilled' ? res.value : { label: calls[i][0], error: String(res.reason) }
+    );
+    console.log('[submit-lead] loops:', JSON.stringify(loopsDebug));
+    return res.status(200).json({ ok: true, loops: loopsDebug });
   }
 
   return res.status(200).json({ ok: true });
