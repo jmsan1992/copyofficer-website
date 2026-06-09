@@ -54,16 +54,6 @@ export default async function handler(req, res) {
   }
 
   // 2. Loops: confirm to lead + notify Jose
-  // --- DEBUG TEMPORAL: quitar tras diagnosticar el problema de Loops ---
-  const debug = {
-    loopsKeySet:    !!LOOPS_API_KEY,
-    loopsKeyLen:    (LOOPS_API_KEY || '').length,
-    loopsEnvKeys:   Object.keys(process.env).filter((k) => /loop/i.test(k)),
-    airtableKeySet: !!process.env.AIRTABLE_TOKEN,
-    hasEmail:       !!body.email,
-    loops:          [],
-  };
-
   if (LOOPS_API_KEY && body.email) {
 
     const calls = [
@@ -99,15 +89,21 @@ export default async function handler(req, res) {
           method:  'POST',
           headers: { 'Authorization': `Bearer ${LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
           body:    JSON.stringify(payload),
-        }).then(async (r) => ({ label, status: r.status, body: await r.text() }))
+        }).then(async (r) => {
+          // contacts/create returns 409 if the contact already exists — that's expected, not an error
+          if (!r.ok && !(label === 'contact' && r.status === 409)) {
+            console.error(`[submit-lead] Loops ${label} failed (${r.status}):`, await r.text());
+          }
+        })
       )
     );
 
-    debug.loops = results.map((res, i) =>
-      res.status === 'fulfilled' ? res.value : { label: calls[i][0], error: String(res.reason) }
-    );
-    console.log('[submit-lead] loops debug:', JSON.stringify(debug));
+    results.forEach((res, i) => {
+      if (res.status === 'rejected') {
+        console.error(`[submit-lead] Loops ${calls[i][0]} threw:`, res.reason);
+      }
+    });
   }
 
-  return res.status(200).json({ ok: true, debug });
+  return res.status(200).json({ ok: true });
 }
