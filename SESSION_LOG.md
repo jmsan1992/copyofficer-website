@@ -80,9 +80,9 @@
 ### 6. Próximos pasos (por prioridad)
 
 1. ~~**[BLOQUEANTE] Arreglar que Loops dispare desde Vercel.**~~ ✅ **HECHO** (ver sección 5: el valor de `LOOPS_API_KEY` estaba vacío en Vercel; arreglado y verificado en producción; debug ya retirado, código limpio en commit `a8487df`).
-2. **Limpiar (pendiente):**
-   - Borrar en **Airtable** las filas de prueba **"ZZZ DEBUG TEST"** creadas durante el diagnóstico (varias; algunas con email en blanco). No generaron emails salvo la verificación final.
-   - Borrar `netlify/functions/submit-lead.js` (huérfano) y el directorio `netlify/` si queda vacío.
+2. **Limpiar:**
+   - ⬜ **Pendiente (manual en Airtable):** borrar las filas de prueba **"ZZZ DEBUG TEST"** creadas durante el diagnóstico (varias; algunas con email en blanco). No generaron emails salvo la verificación final.
+   - ✅ **HECHO:** borrado `netlify/functions/submit-lead.js` (huérfano) y el directorio `netlify/` (commit `03a5b7b`).
 3. **Test end-to-end real:** rellenar el form en el sitio con un email real → confirmar que llegan los DOS emails (confirmación al lead + notificación a Jose) y el registro a Airtable.
 4. **Conectar Calendly al CRM:** hoy el form va a Airtable, pero las reservas de Calendly no. Añadir webhook de Calendly → Airtable (vía otra función de Vercel o la integración nativa).
 5. **Nurturing en Loops:** secuencia de follow-ups (día 0/2/5/10) con ramas por comportamiento. Requiere escribir los emails primero.
