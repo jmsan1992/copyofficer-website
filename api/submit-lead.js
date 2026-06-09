@@ -54,52 +54,58 @@ export default async function handler(req, res) {
   }
 
   // 2. Loops: confirm to lead + notify Jose
+  // --- DEBUG TEMPORAL: quitar tras diagnosticar el problema de Loops ---
+  const debug = {
+    loopsKeySet: !!LOOPS_API_KEY,
+    loopsKeyLen: (LOOPS_API_KEY || '').length,
+    hasEmail:    !!body.email,
+    loops:       [],
+  };
+
   if (LOOPS_API_KEY && body.email) {
 
-    await Promise.allSettled([
-      // Add/update contact
-      fetch('https://app.loops.so/api/v1/contacts/create', {
-        method:  'POST',
-        headers: { 'Authorization': `Bearer ${LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email:     body.email,
-          firstName: first,
-          lastName:  body.name.split(' ').slice(1).join(' ') || '',
-          source:    body.source || 'contact_form',
-        }),
-      }),
+    const calls = [
+      ['contact', 'https://app.loops.so/api/v1/contacts/create', {
+        email:     body.email,
+        firstName: first,
+        lastName:  (body.name || '').split(' ').slice(1).join(' '),
+        source:    body.source || 'contact_form',
+      }],
+      ['confirm', 'https://app.loops.so/api/v1/transactional', {
+        transactionalId: LOOPS_CONFIRMATION_ID,
+        email:           body.email,
+        dataVariables:   { firstName: first },
+      }],
+      ['notify', 'https://app.loops.so/api/v1/transactional', {
+        transactionalId: LOOPS_NOTIFICATION_ID,
+        email:           NOTIFICATION_EMAIL,
+        dataVariables: {
+          leadName:    body.name      || '—',
+          leadEmail:   body.email     || '—',
+          leadCompany: body.company   || '—',
+          leadWebsite: body.website   || '—',
+          leadMessage: body.message   || '—',
+          leadSource:  body.source    || 'direct',
+          leadPage:    body.entry_page || '—',
+        },
+      }],
+    ];
 
-      // Confirmation email to lead
-      fetch('https://app.loops.so/api/v1/transactional', {
-        method:  'POST',
-        headers: { 'Authorization': `Bearer ${LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          transactionalId: LOOPS_CONFIRMATION_ID,
-          email:           body.email,
-          dataVariables:   { firstName: first },
-        }),
-      }),
+    const results = await Promise.allSettled(
+      calls.map(([label, url, payload]) =>
+        fetch(url, {
+          method:  'POST',
+          headers: { 'Authorization': `Bearer ${LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload),
+        }).then(async (r) => ({ label, status: r.status, body: await r.text() }))
+      )
+    );
 
-      // Notification email to Jose
-      fetch('https://app.loops.so/api/v1/transactional', {
-        method:  'POST',
-        headers: { 'Authorization': `Bearer ${LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          transactionalId: LOOPS_NOTIFICATION_ID,
-          email:           NOTIFICATION_EMAIL,
-          dataVariables: {
-            leadName:    body.name     || '—',
-            leadEmail:   body.email    || '—',
-            leadCompany: body.company  || '—',
-            leadWebsite: body.website  || '—',
-            leadMessage: body.message  || '—',
-            leadSource:  body.source   || 'direct',
-            leadPage:    body.entry_page || '—',
-          },
-        }),
-      }),
-    ]);
+    debug.loops = results.map((res, i) =>
+      res.status === 'fulfilled' ? res.value : { label: calls[i][0], error: String(res.reason) }
+    );
+    console.log('[submit-lead] loops debug:', JSON.stringify(debug));
   }
 
-  return res.status(200).json({ ok: true });
+  return res.status(200).json({ ok: true, debug });
 }
