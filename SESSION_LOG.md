@@ -61,6 +61,16 @@
   - **Verificado en producción:** `loopsKeySet:true, loopsKeyLen:32`; las 3 llamadas a Loops responden `confirm 200`, `notify 200`, `contact 409` (409 = contacto ya existía, inofensivo). Los dos emails se envían correctamente.
   - **Lección / prevención:** el código original tragaba los errores de Loops en silencio (`Promise.allSettled` sin chequear `.ok` ni loguear). Se dejó un `console.error` ante cualquier respuesta no-2xx de Loops (igual que el manejo de Airtable) para que un fallo futuro sea visible en los logs de Vercel.
 
+- ✅ **RESUELTO: el email de notificación llegaba vacío y luego no llegaba.** Dos sub-bugs encadenados, ambos en la plantilla de Loops (no en el código):
+  1. **Cuerpo vacío:** el texto del cuerpo estaba en un color claro → invisible sobre el fondo claro de Gmail ("rectángulo gris vacío"). El editor de Loops lo mostraba bien porque estaba en preview "Dark mode". Fix: poner el color del texto en negro.
+  2. **No enviaba (tras arreglar el color):** al reconstruir el bloque, la variable de empresa quedó como **`leadCompa`** (recortada) en vez de `leadCompany`. El código manda `leadCompany`, la plantilla exigía `leadCompa` → Loops respondía **400 "Missing required data variable(s): leadCompa"** y no enviaba. Fix: corregir la variable a `leadCompany` en la plantilla + Publish.
+
+**Reglas de Loops aprendidas (importantes para futuras plantillas):**
+- Loops exige que el envío incluya una clave por **cada** variable que la plantilla declara, con el **nombre exacto** — el VALOR puede ir vacío, pero la CLAVE debe existir. Un nombre que no coincide = error 400, no se envía.
+- **"Send preview" NO valida las variables** (usa datos de ejemplo) → puede funcionar en preview y fallar en el envío real. Para verificar de verdad, hacer un envío real.
+- El código manda los 7 nombres: `leadName, leadEmail, leadCompany, leadWebsite, leadMessage, leadSource, leadPage`, y rellena los vacíos con `—`, así que el email **siempre se envía con lo que el lead haya puesto** (campos vacíos salen como `—`). Si se editan plantillas, los nombres deben seguir coincidiendo con esos 7.
+- Loops manda un email automático "nuevo contacto añadido a la audiencia" por cada `contacts/create`. Es ruido; se silencia en Loops → Settings → Notifications. (El contacto SÍ queremos crearlo, para nurturing futuro.)
+
 **Notas de operación de Vercel (aprendidas esta sesión):**
 - Un cambio de VALOR de una env var NO se aplica a deploys existentes: hay que **redeploy** para que lo recoja.
 - "Redeploy" sobre un deployment viejo de la lista reconstruye ESE commit (no el último). Si se quiere el último código, hacer push o redeploy del deployment más reciente.
