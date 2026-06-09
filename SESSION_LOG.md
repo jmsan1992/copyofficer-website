@@ -54,23 +54,25 @@
 - ✅ Email de confirmación al lead (probado vía API directa con `firstName` → llega con `Hi Jose,` correcto tras arreglar el bug de la llave).
 - ✅ Ambos emails transaccionales creados y publicados en Loops.
 
-**A medias / roto:**
-- ⚠️ **Los emails NO se disparan desde la función de Vercel.** Al enviar el form, Airtable se guarda pero el contacto NO se crea en Loops y no llegan emails. La API de Loops funciona perfecto en pruebas directas (curl) → el problema es que **`LOOPS_API_KEY` no está llegando al código en ejecución** (la condición `if (LOOPS_API_KEY && ...)` sale falsa). La var SÍ aparece en el dashboard de Vercel (Production+Preview, añadida ~7h).
+- ✅ **RESUELTO: los emails de Loops ya se disparan desde Vercel.**
+  - **Causa raíz:** la variable `LOOPS_API_KEY` existía en Vercel con el nombre correcto y scope Production, pero **su VALOR estaba vacío** (longitud 0). El nombre era exacto (no había typo ni espacio) y `AIRTABLE_TOKEN` funcionaba — el problema era solo el valor en blanco. Por eso `if (LOOPS_API_KEY && ...)` salía falso y las llamadas a Loops ni se intentaban, sin error visible.
+  - **Cómo se diagnosticó:** se instrumentó la función temporalmente para devolver `loopsKeySet`/`loopsKeyLen` y `Object.keys(process.env)` filtrado por `/loop/`. Resultado: `loopsEnvKeys:["LOOPS_API_KEY"]` (nombre OK) + `loopsKeyLen:0` (valor vacío) → diagnóstico inequívoco.
+  - **Fix:** el usuario re-pegó el valor de la API key en Vercel → Save (Production) → Redeploy.
+  - **Verificado en producción:** `loopsKeySet:true, loopsKeyLen:32`; las 3 llamadas a Loops responden `confirm 200`, `notify 200`, `contact 409` (409 = contacto ya existía, inofensivo). Los dos emails se envían correctamente.
+  - **Lección / prevención:** el código original tragaba los errores de Loops en silencio (`Promise.allSettled` sin chequear `.ok` ni loguear). Se dejó un `console.error` ante cualquier respuesta no-2xx de Loops (igual que el manejo de Airtable) para que un fallo futuro sea visible en los logs de Vercel.
 
-**Dudas abiertas:**
-- ¿El deployment que sirve el form se construyó después de añadir `LOOPS_API_KEY`? ¿O las pruebas se hicieron antes de que terminara el deploy?
-- ¿El form de producción (www.copyofficer.com) apunta al mismo deployment que probé por curl (`copyofficer-website.vercel.app`)?
+**Notas de operación de Vercel (aprendidas esta sesión):**
+- Un cambio de VALOR de una env var NO se aplica a deploys existentes: hay que **redeploy** para que lo recoja.
+- "Redeploy" sobre un deployment viejo de la lista reconstruye ESE commit (no el último). Si se quiere el último código, hacer push o redeploy del deployment más reciente.
+- `www.copyofficer.com` es el dominio que sirve la función; `copyofficer.com` (sin www) hace **307 redirect** a www. Para probar por curl, usar directamente `https://www.copyofficer.com/api/submit-lead`.
+- El campo `Source` (y probablemente `Entry Page`) en Airtable rechaza valores fuera de su lista si es single-select: en pruebas usar valores válidos (`direct`, `homepage`).
 
 ### 6. Próximos pasos (por prioridad)
 
-1. **[BLOQUEANTE] Arreglar que Loops dispare desde Vercel.**
-   - Re-añadir temporalmente el campo debug en la respuesta: `return res.status(200).json({ ok: true, loopsKeySet: !!LOOPS_API_KEY })`.
-   - Commit + push, **esperar a que el deploy termine** (verificar en Vercel → Deployments que el commit está "Ready"), y solo entonces hacer `curl -X POST .../api/submit-lead`.
-   - Si `loopsKeySet:false` → la env var no llega: revisar que el deploy de producción es posterior a la creación de la var; forzar "Redeploy" SIN usar caché de build; confirmar scope Production.
-   - Si `loopsKeySet:true` pero el contacto no se crea → loguear el resultado de los `fetch` a Loops (status + body) dentro de `Promise.allSettled` para ver el error real de la API.
-   - Verificar tras cada intento: `curl "https://app.loops.so/api/v1/contacts/find?email=<test>" -H "Authorization: Bearer <LOOPS_API_KEY>"`.
-   - Al terminar, **quitar el debug**.
-2. **Limpiar:** borrar `netlify/functions/submit-lead.js` (huérfano) y el directorio `netlify/` si queda vacío.
+1. ~~**[BLOQUEANTE] Arreglar que Loops dispare desde Vercel.**~~ ✅ **HECHO** (ver sección 5: el valor de `LOOPS_API_KEY` estaba vacío en Vercel; arreglado y verificado en producción; debug ya retirado, código limpio en commit `a8487df`).
+2. **Limpiar (pendiente):**
+   - Borrar en **Airtable** las filas de prueba **"ZZZ DEBUG TEST"** creadas durante el diagnóstico (varias; algunas con email en blanco). No generaron emails salvo la verificación final.
+   - Borrar `netlify/functions/submit-lead.js` (huérfano) y el directorio `netlify/` si queda vacío.
 3. **Test end-to-end real:** rellenar el form en el sitio con un email real → confirmar que llegan los DOS emails (confirmación al lead + notificación a Jose) y el registro a Airtable.
 4. **Conectar Calendly al CRM:** hoy el form va a Airtable, pero las reservas de Calendly no. Añadir webhook de Calendly → Airtable (vía otra función de Vercel o la integración nativa).
 5. **Nurturing en Loops:** secuencia de follow-ups (día 0/2/5/10) con ramas por comportamiento. Requiere escribir los emails primero.
