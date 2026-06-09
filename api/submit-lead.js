@@ -2,10 +2,12 @@ const AIRTABLE_BASE  = process.env.AIRTABLE_BASE  || 'appPLCdGWMfpyDs8A';
 const AIRTABLE_TABLE = process.env.AIRTABLE_TABLE || 'tblVVv9Gou91CZOeH';
 const AIRTABLE_URL   = `https://api.airtable.com/v0/${AIRTABLE_BASE}/${AIRTABLE_TABLE}`;
 
-const LOOPS_API_KEY          = process.env.LOOPS_API_KEY;
-const LOOPS_TRANSACTIONAL_ID = 'cmq67hi46063f0jy6daqoo0ku';
+const LOOPS_API_KEY              = process.env.LOOPS_API_KEY;
+const LOOPS_CONFIRMATION_ID      = 'cmq67hi46063f0jy6daqoo0ku';
+const LOOPS_NOTIFICATION_ID      = 'cmq6gk8s21o1a0jzhfivv4djo';
+const NOTIFICATION_EMAIL         = 'jose@fractionalglobalcmo.com';
 
-function firstName(fullName) {
+function getFirstName(fullName) {
   return (fullName || '').split(' ')[0] || fullName || '';
 }
 
@@ -15,7 +17,7 @@ export default async function handler(req, res) {
   }
 
   const body = req.body;
-  const first = firstName(body.name);
+  const first = getFirstName(body.name);
 
   // 1. Save to Airtable
   const airtableRes = await fetch(AIRTABLE_URL, {
@@ -51,16 +53,25 @@ export default async function handler(req, res) {
     return res.status(502).json({ error: 'Airtable error' });
   }
 
-  // 2. Add contact to Loops + send confirmation email
+  // 2. Loops: confirm to lead + notify Jose
   if (LOOPS_API_KEY && body.email) {
+    const notificationBody = [
+      'New lead received.',
+      '',
+      `Name:    ${body.name || '—'}`,
+      `Email:   ${body.email || '—'}`,
+      `Company: ${body.company || '—'}`,
+      `Website: ${body.website || '—'}`,
+      `Message: ${body.message || '—'}`,
+      `Source:  ${body.source || 'direct'}`,
+      `Page:    ${body.entry_page || '—'}`,
+    ].join('\n');
+
     await Promise.allSettled([
-      // Add/update contact in Loops
+      // Add/update contact
       fetch('https://app.loops.so/api/v1/contacts/create', {
         method:  'POST',
-        headers: {
-          'Authorization': `Bearer ${LOOPS_API_KEY}`,
-          'Content-Type':  'application/json',
-        },
+        headers: { 'Authorization': `Bearer ${LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email:     body.email,
           firstName: first,
@@ -69,21 +80,29 @@ export default async function handler(req, res) {
         }),
       }),
 
-      // Send confirmation transactional email
+      // Confirmation email to lead
       fetch('https://app.loops.so/api/v1/transactional', {
         method:  'POST',
-        headers: {
-          'Authorization': `Bearer ${LOOPS_API_KEY}`,
-          'Content-Type':  'application/json',
-        },
+        headers: { 'Authorization': `Bearer ${LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          transactionalId: LOOPS_TRANSACTIONAL_ID,
+          transactionalId: LOOPS_CONFIRMATION_ID,
           email:           body.email,
           dataVariables:   { firstName: first },
+        }),
+      }),
+
+      // Notification email to Jose
+      fetch('https://app.loops.so/api/v1/transactional', {
+        method:  'POST',
+        headers: { 'Authorization': `Bearer ${LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          transactionalId: LOOPS_NOTIFICATION_ID,
+          email:           NOTIFICATION_EMAIL,
+          dataVariables:   { body: notificationBody },
         }),
       }),
     ]);
   }
 
-  return res.status(200).json({ ok: true, loopsKeySet: !!LOOPS_API_KEY });
+  return res.status(200).json({ ok: true });
 }
