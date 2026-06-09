@@ -56,10 +56,12 @@ export default async function handler(req, res) {
   // 2. Loops: confirm to lead + notify Jose
   // --- DEBUG TEMPORAL: quitar tras diagnosticar el problema de Loops ---
   const debug = {
-    loopsKeySet: !!LOOPS_API_KEY,
-    loopsKeyLen: (LOOPS_API_KEY || '').length,
-    hasEmail:    !!body.email,
-    loops:       [],
+    loopsKeySet:    !!LOOPS_API_KEY,
+    loopsKeyLen:    (LOOPS_API_KEY || '').length,
+    loopsEnvKeys:   Object.keys(process.env).filter((k) => /loop/i.test(k)),
+    airtableKeySet: !!process.env.AIRTABLE_TOKEN,
+    hasEmail:       !!body.email,
+    loops:          [],
   };
 
   if (LOOPS_API_KEY && body.email) {
