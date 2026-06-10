@@ -42,12 +42,33 @@
     return el ? el.value.trim() : '';
   }
 
+  /* ── Click-id helpers (Google Ads gclid / Meta fbclid) ── */
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
+  /* Copy gclid/fbclid cookies into a form's hidden fields (if present) */
+  function setClickIds(form) {
+    ['gclid', 'fbclid'].forEach(function (key) {
+      var input = form.querySelector('[name="' + key + '"]');
+      var val   = getCookie(key);
+      if (input && val) input.value = val;
+    });
+  }
+
   /* ── Main form handler ── */
   function attachForm(form, entryPage) {
     if (!form) return;
 
+    /* On page load: copy click-id cookies into the hidden fields */
+    setClickIds(form);
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+
+      /* Refresh click-ids right before submit (cookies may have been set after load) */
+      setClickIds(form);
 
       var btn       = form.querySelector('[type="submit"]');
       var origText  = btn ? btn.textContent : '';
@@ -85,6 +106,8 @@
         message:      fieldVal(form, 'message'),
         source:       utms.utm_source || 'direct',
         entry_page:   entryPage,
+        gclid:        fieldVal(form, 'gclid'),
+        fbclid:       fieldVal(form, 'fbclid'),
         utm_source:   utms.utm_source,
         utm_medium:   utms.utm_medium,
         utm_campaign: utms.utm_campaign,
