@@ -53,6 +53,7 @@
 - ✅ Dominio verificado en Loops; se puede enviar desde `jose@copyofficer.com`.
 - ✅ Email de confirmación al lead (probado vía API directa con `firstName` → llega con `Hi Jose,` correcto tras arreglar el bug de la llave).
 - ✅ Ambos emails transaccionales creados y publicados en Loops.
+- ✅ **Captura de click-ids (Google Ads `gclid` + Meta `fbclid`)** en ambos forms. `forms.js` lee las cookies `gclid`/`fbclid` → rellena campos ocultos (al cargar y antes de enviar) → las manda en el payload. `api/submit-lead.js` las guarda en las columnas Airtable `GCLID`/`FBCLID` (creadas por el usuario). Verificado en producción: 8/8 envíos `200` (nombres de columna correctos; un typo daría 502 y rompería la captura).
 
 - ✅ **RESUELTO: los emails de Loops ya se disparan desde Vercel.**
   - **Causa raíz:** la variable `LOOPS_API_KEY` existía en Vercel con el nombre correcto y scope Production, pero **su VALOR estaba vacío** (longitud 0). El nombre era exacto (no había typo ni espacio) y `AIRTABLE_TOKEN` funcionaba — el problema era solo el valor en blanco. Por eso `if (LOOPS_API_KEY && ...)` salía falso y las llamadas a Loops ni se intentaban, sin error visible.
@@ -81,7 +82,7 @@
 
 1. ~~**[BLOQUEANTE] Arreglar que Loops dispare desde Vercel.**~~ ✅ **HECHO** (ver sección 5: el valor de `LOOPS_API_KEY` estaba vacío en Vercel; arreglado y verificado en producción; debug ya retirado, código limpio en commit `a8487df`).
 2. **Limpiar:**
-   - ⬜ **Pendiente (manual en Airtable):** borrar las filas de prueba **"ZZZ DEBUG TEST"** creadas durante el diagnóstico (varias; algunas con email en blanco). No generaron emails salvo la verificación final.
+   - ⬜ **Pendiente (manual en Airtable):** borrar todas las filas de prueba que empiezan por **"ZZZ DEBUG TEST"** (del diagnóstico de Loops y de la prueba de gclid/fbclid; varias, algunas con email en blanco). Las de gclid llevan `GCLID=test-gclid-OK-123` / `FBCLID=test-fbclid-OK-456`.
    - ✅ **HECHO:** borrado `netlify/functions/submit-lead.js` (huérfano) y el directorio `netlify/` (commit `03a5b7b`).
 3. **Test end-to-end real:** rellenar el form en el sitio con un email real → confirmar que llegan los DOS emails (confirmación al lead + notificación a Jose) y el registro a Airtable.
 4. **Conectar Calendly al CRM:** hoy el form va a Airtable, pero las reservas de Calendly no. Añadir webhook de Calendly → Airtable (vía otra función de Vercel o la integración nativa).
