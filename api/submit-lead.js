@@ -43,6 +43,8 @@ export default async function handler(req, res) {
           'UTM Campaign': body.utm_campaign || '',
           'UTM Content':  body.utm_content  || '',
           'UTM Term':     body.utm_term     || '',
+          'GCLID':        body.gclid        || '',
+          'FBCLID':       body.fbclid       || '',
         },
       }],
     }),
