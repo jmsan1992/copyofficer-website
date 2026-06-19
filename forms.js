@@ -123,6 +123,9 @@
         .then(function (res) {
           if (!res.ok) throw new Error('HTTP ' + res.status);
           successEl.style.display = 'block';
+          /* Tell GTM the lead form succeeded → fires the Google Ads conversion (real-time) */
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'lead_form_success', form_location: entryPage });
           form.reset();
         })
         .catch(function (err) {
